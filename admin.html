@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AUTOSHOP | Admin Panel</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="assets/css/style.css" rel="stylesheet"/>
+<script src="assets/js/tailwind-config.js"></script>
+</head>
+<body class="selection:bg-primary-container selection:text-on-primary-container min-h-screen flex flex-col">
+<header class="top-0 sticky z-50 bg-surface/70 backdrop-blur-xl border-b border-surface-variant/20 shadow-sm flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop h-16 transition-all duration-300">
+<div class="flex items-center gap-4">
+<a href="index.html">
+<h1 class="font-display-lg-mobile text-display-lg-mobile md:text-headline-lg tracking-tighter text-surface uppercase">AUTOSHOP</h1>
+</a>
+<span class="bg-primary/20 text-primary text-xs font-bold px-3 py-1 rounded-full uppercase">Admin</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="index.html">Home</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="shop.html">Shop</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="dashboard.html">Dashboard</a>
+</nav>
+<div class="flex items-center gap-4">
+<a id="logout-btn" class="font-label-md text-label-md text-error hover:underline cursor-pointer">Logout</a>
+</div>
+</header>
+<main class="flex-1 px-margin-mobile md:px-margin-desktop py-12">
+<div class="max-w-container-max mx-auto">
+<div class="mb-8">
+<h2 class="font-display-lg-mobile md:text-headline-lg text-headline-lg text-on-surface">Admin Panel</h2>
+<p class="text-on-surface-variant font-body-md mt-2">Manage products, view orders, and configure settings.</p>
+</div>
+<div class="flex gap-4 mb-8 border-b border-outline-variant/20 pb-2 overflow-x-auto">
+<button class="tab-btn active font-label-md text-label-md text-on-surface-variant pb-2 px-1 transition-colors" data-tab="products">Products</button>
+<button class="tab-btn font-label-md text-label-md text-on-surface-variant pb-2 px-1 transition-colors" data-tab="orders">Orders</button>
+<button class="tab-btn font-label-md text-label-md text-on-surface-variant pb-2 px-1 transition-colors" data-tab="messages">Messages</button>
+<button class="tab-btn font-label-md text-label-md text-on-surface-variant pb-2 px-1 transition-colors" data-tab="config">Config</button>
+</div>
+<div id="tab-products" class="tab-content">
+<div class="flex justify-between items-center mb-4">
+<h3 class="font-headline-md text-headline-md text-on-surface">Products</h3>
+<button onclick="showAddProduct()" class="bg-primary text-on-primary font-bold py-2 px-4 rounded-xl hover:brightness-110 transition-all flex items-center gap-1"><span class="material-symbols-outlined text-sm">add</span> Add Product</button>
+</div>
+<div id="products-list" class="space-y-3"></div>
+</div>
+<div id="tab-orders" class="tab-content hidden">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4">Orders</h3>
+<div id="orders-list" class="space-y-3"></div>
+</div>
+<div id="tab-messages" class="tab-content hidden">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4">Contact Messages</h3>
+<div id="messages-list" class="space-y-3"></div>
+</div>
+<div id="tab-config" class="tab-content hidden">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4">Configuration Files</h3>
+<p class="text-on-surface-variant font-body-md mb-4">Edit the JSON config files directly. These control brands/models and services shown on the site.</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="glass-panel rounded-xl p-6 border border-white/5">
+<h4 class="font-headline-md text-headline-md text-on-surface mb-3">Brands</h4>
+<textarea id="brands-editor" class="w-full h-64 px-4 py-3 rounded-xl bg-surface-container-low border border-outline-variant/30 text-on-surface font-mono text-sm focus:outline-none focus:border-primary transition-all"></textarea>
+<button onclick="saveConfig('brands')" class="mt-3 bg-primary text-on-primary font-bold py-2 px-4 rounded-xl hover:brightness-110 transition-all">Save Brands</button>
+</div>
+<div class="glass-panel rounded-xl p-6 border border-white/5">
+<h4 class="font-headline-md text-headline-md text-on-surface mb-3">Services</h4>
+<textarea id="services-editor" class="w-full h-64 px-4 py-3 rounded-xl bg-surface-container-low border border-outline-variant/30 text-on-surface font-mono text-sm focus:outline-none focus:border-primary transition-all"></textarea>
+<button onclick="saveConfig('services')" class="mt-3 bg-primary text-on-primary font-bold py-2 px-4 rounded-xl hover:brightness-110 transition-all">Save Services</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<script>
+let categories = [];
+
+async function checkAuth() {
+const res = await fetch('/api/auth/me', { credentials: 'include' });
+const data = await res.json();
+if (!data.authenticated || !data.is_admin) {
+window.location.href = 'login.html';
+return null;
+}
+return data;
+}
+
+document.getElementById('logout-btn').addEventListener('click', async () => {
+await fetch('/api/auth/logout', { method: 'POST', credentials: 'include' });
+window.location.href = 'login.html';
+});
+
+document.querySelectorAll('.tab-btn').forEach(btn => {
+btn.addEventListener('click', function() {
+document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+document.querySelectorAll('.tab-content').forEach(t => t.classList.add('hidden'));
+this.classList.add('active');
+document.getElementById('tab-' + this.dataset.tab).classList.remove('hidden');
+if (this.dataset.tab === 'config') loadConfigEditors();
+});
+});
+
+async function loadProducts() {
+const res = await fetch('/api/products');
+const products = await res.json();
+const catsRes = await fetch('/api/categories');
+categories = await catsRes.json();
+const list = document.getElementById('products-list');
+list.innerHTML = products.map(p => `
+<div class="glass-panel rounded-xl p-4 border border-white/5 flex items-center gap-4">
+<img loading="lazy" src="${p.image_url || ''}" class="w-16 h-16 object-cover rounded-lg bg-surface-dim" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2264%22 height=%2264%22><rect fill=%22%23333%22 width=%2264%22 height=%2264%22/></svg>'"/>
+<div class="flex-1">
+<h5 class="font-headline-md text-headline-md text-on-surface text-sm">${p.name}</h5>
+<p class="text-on-surface-variant text-xs">₹${p.price.toLocaleString('en-IN')} · ${p.category_name || ''}</p>
+</div>
+<div class="flex gap-2">
+<button onclick="deleteProduct('${p.slug}')" class="text-error hover:text-error/70 transition-colors"><span class="material-symbols-outlined">delete</span></button>
+</div>
+</div>
+`).join('');
+}
+
+async function deleteProduct(slug) {
+if (!confirm('Delete this product?')) return;
+await fetch('/api/products/' + slug, { method: 'DELETE', credentials: 'include' });
+loadProducts();
+}
+
+function showAddProduct() {
+const name = prompt('Product name:');
+if (!name) return;
+const price = prompt('Price (₹):');
+if (!price) return;
+const slug = name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+fetch('/api/products', {
+method: 'POST',
+credentials: 'include',
+headers: {'Content-Type': 'application/json'},
+body: JSON.stringify({
+name, slug, price: parseFloat(price),
+category_id: 1,
+description: '',
+short_desc: '',
+image_url: ''
+})
+}).then(r => r.json()).then(() => loadProducts());
+}
+
+async function loadOrders() {
+const res = await fetch('/api/admin/orders', { credentials: 'include' });
+const orders = await res.json();
+const list = document.getElementById('orders-list');
+list.innerHTML = orders.length === 0 ? '<p class="text-on-surface-variant">No orders yet.</p>' :
+orders.map(o => `
+<div class="glass-panel rounded-xl p-4 border border-white/5">
+<div class="flex justify-between items-start">
+<div>
+<h5 class="font-headline-md text-headline-md text-on-surface text-sm">Order #${o.id}</h5>
+<p class="text-on-surface-variant text-xs">${o.customer_name} · ${new Date(o.created_at).toLocaleDateString('en-IN')} · ₹${o.total.toLocaleString('en-IN')}</p>
+</div>
+<span class="text-xs font-bold px-2 py-1 rounded-full ${o.status === 'pending' ? 'bg-tertiary-container/20 text-tertiary' : 'bg-primary/10 text-primary'}">${o.status}</span>
+</div>
+</div>
+`).join('');
+}
+
+async function loadMessages() {
+const res = await fetch('/api/admin/contact-messages', { credentials: 'include' });
+const msgs = await res.json();
+const list = document.getElementById('messages-list');
+list.innerHTML = msgs.length === 0 ? '<p class="text-on-surface-variant">No messages yet.</p>' :
+msgs.map(m => `
+<div class="glass-panel rounded-xl p-4 border border-white/5">
+<div class="flex justify-between items-start">
+<div>
+<h5 class="font-headline-md text-headline-md text-on-surface text-sm">${m.name}</h5>
+<p class="text-on-surface-variant text-xs">${m.email || ''} ${m.phone || ''} · ${new Date(m.created_at).toLocaleDateString('en-IN')}</p>
+<p class="text-on-surface mt-2">${m.message}</p>
+</div>
+</div>
+</div>
+`).join('');
+}
+
+async function loadConfigEditors() {
+const brandsRes = await fetch('/api/config/brands');
+document.getElementById('brands-editor').value = JSON.stringify(await brandsRes.json(), null, 2);
+const servicesRes = await fetch('/api/config/services');
+document.getElementById('services-editor').value = JSON.stringify(await servicesRes.json(), null, 2);
+}
+
+async function saveConfig(type) {
+const editor = document.getElementById(type + '-editor');
+try {
+const data = JSON.parse(editor.value);
+const res = await fetch('/api/config/' + type, {
+method: 'POST',
+credentials: 'include',
+headers: {'Content-Type': 'application/json'},
+body: JSON.stringify(data)
+});
+const result = await res.json();
+alert(result.message || 'Saved!');
+} catch (e) {
+alert('Invalid JSON: ' + e.message);
+}
+}
+
+checkAuth().then(() => {
+loadProducts();
+loadOrders();
+loadMessages();
+});
+</script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

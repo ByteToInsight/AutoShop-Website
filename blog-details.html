@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AUTOSHOP | Blog Details</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="assets/css/style.css" rel="stylesheet"/>
+<script src="assets/js/tailwind-config.js"></script>
+</head>
+<body class="bg-background text-on-surface">
+<div class="scroll-indicator" id="scrollProgress"></div>
+<!-- TopAppBar -->
+<header class="top-0 sticky z-50 bg-surface/70 backdrop-blur-xl border-b border-surface-variant/20 shadow-sm flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop h-16 transition-all duration-300">
+<div class="flex items-center gap-4">
+<button data-toggle-menu class="text-primary hover:opacity-80 transition-opacity active:scale-95 duration-200">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<a href="index.html"><h1 class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg tracking-tighter text-on-surface uppercase select-none">AUTOSHOP</h1></a>
+</div>
+<div class="flex items-center gap-6">
+<nav class="hidden md:flex gap-8 items-center">
+<a class="font-label-md text-label-md text-on-surface-variant hover:opacity-80 transition-opacity" href="index.html">Home</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:opacity-80 transition-opacity" href="shop.html">Shop</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:opacity-80 transition-opacity" href="about.html">About</a>
+<a class="font-label-md text-label-md text-primary transition-all" href="blog.html">Blog</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:opacity-80 transition-opacity" href="contact.html">Contact</a>
+</nav>
+<a id="auth-link" href="login.html" class="font-label-md text-label-md text-primary hover:underline hidden md:inline"></a>
+<a href="cart.html" class="hover:opacity-80 transition-opacity active:scale-95 relative">
+<span class="material-symbols-outlined text-primary">shopping_bag</span>
+<span id="cart-badge" class="absolute -top-1 -right-1 bg-primary text-on-primary text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold hidden">0</span>
+</a>
+<button data-toggle-search class="text-primary hover:opacity-80 transition-opacity active:scale-95 duration-200">
+<span class="material-symbols-outlined">search</span>
+</button>
+</div>
+</header>
+<main class="min-h-screen pb-24">
+<!-- Hero Section -->
+<section class="relative w-full h-[530px] md:h-[707px] overflow-hidden flex items-end">
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent z-10"></div>
+<div class="w-full h-full bg-cover bg-center scale-105 transition-transform duration-1000 ease-out hover:scale-100" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBss5pGsuf2ov4FPefs2LtHjPgMpVvK1dOJlBqI4Od9uWNzyko9cecIes4sLAdGHQAU3n6NS83LHWFto3dE0B0gyprV4LtNdk2ToM2zSW-6FLYdP6DDHfPNlGOONaPGlcBYnKKop8eUmsgPlioCKZbfola5Kk7wYsSeuIU1NiDFAFKk9JOScUZ0NUVkRnHnYd-G-zIu5SPap7P4EDEwLUXfB2FVteJIsT6QPlchjNwvoUPGmOfSOC22pOhxyulTnIgB5XqUsqY3Drkx')"></div>
+</div>
+<div class="relative z-20 px-margin-mobile md:px-margin-desktop pb-12 container-max mx-auto w-full">
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="bg-primary/10 text-primary px-3 py-1 rounded-full font-label-md text-label-md border border-primary/20">Engineering</span>
+<span class="bg-surface-variant/50 text-on-surface-variant px-3 py-1 rounded-full font-label-md text-label-md border border-outline-variant/20">Future Tech</span>
+</div>
+<h1 class="font-display-lg-mobile text-display-lg-mobile md:text-display-lg md:font-display-lg leading-tight mb-6 max-w-4xl">
+The Architecture of Silence: Reimagining Acoustic Luxury in the Modern EV
+</h1>
+<div class="flex items-center gap-4 text-on-surface-variant font-label-md text-label-md">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-surface-container-high border border-outline-variant"></div>
+<span>By Alexander Vane</span>
+</div>
+<div class="w-1 h-1 rounded-full bg-outline-variant"></div>
+<span>Oct 24, 2024</span>
+<div class="w-1 h-1 rounded-full bg-outline-variant"></div>
+<span>12 min read</span>
+</div>
+</div>
+</section>
+<!-- Article Content -->
+<article class="px-margin-mobile md:px-margin-desktop mt-12 md:mt-24">
+<div class="reading-container">
+<!-- Share Floating Actions -->
+<aside class="hidden lg:flex flex-col gap-6 fixed left-[calc(50%-440px)] top-1/2 -translate-y-1/2">
+<button class="w-12 h-12 flex items-center justify-center rounded-full glass-panel hover:text-primary transition-colors active:scale-90 duration-300">
+<span class="material-symbols-outlined">share</span>
+</button>
+<button class="w-12 h-12 flex items-center justify-center rounded-full glass-panel hover:text-primary transition-colors active:scale-90 duration-300">
+<span class="material-symbols-outlined" data-weight="fill">bookmark</span>
+</button>
+<button class="w-12 h-12 flex items-center justify-center rounded-full glass-panel hover:text-primary transition-colors active:scale-90 duration-300">
+<span class="material-symbols-outlined">chat_bubble</span>
+</button>
+</aside>
+<!-- Intro -->
+<p class="font-body-lg text-body-lg text-on-surface mb-12 leading-relaxed opacity-90 first-letter:text-5xl first-letter:font-bold first-letter:mr-3 first-letter:float-left first-letter:text-primary">
+In the traditional era of internal combustion, luxury was often defined by the roar of a twelve-cylinder engine—a mechanical symphony of power and prestige. However, as we pivot toward an electric future, the paradigm of automotive opulence is undergoing a quiet revolution. Luxury is no longer defined by what we hear, but by what we don't.
+</p>
+<h2 class="font-headline-lg text-headline-lg mb-6 mt-16 text-primary">The New Acoustic Frontier</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8 leading-relaxed">
+Acoustics in an electric vehicle (EV) present a unique engineering challenge. Without the masking noise of a combustion engine, every other sound—the hum of the tires, the rush of wind against the pillars, the subtle whir of the drivetrain—becomes amplified. To achieve a level of silence that feels truly luxurious, engineers at the AutoShop Laboratory are employing advanced noise-cancellation algorithms that mirror the technology found in high-end aerospace cockpits.
+</p>
+<!-- Featured Image -->
+<figure class="my-16 -mx-4 md:-mx-12">
+<div class="aspect-video w-full rounded-xl overflow-hidden glass-panel">
+<div class="w-full h-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDxDRr5EBRp5FISp5-sm6KAbYbb12GKd7z3dyqaW145Cq5f4I07C7yVk37W2VBNgaz4sCvAUK5RnXljhSKGUvaU76yJplKBocr5NWItLRShiHKL3NWJrtOuH5Nbhs-MHnToc5EXcLF5W9DvxlkHord5U_9LwQ0QCHW1aRYGTUGrrqe5At5FZ11i7TjFVyc159WkMs2gvejtvuZvJrpW96sPgPpM9Q_lK3F68_yUsUVAw1AE0dCwp2RtDdsHCYtuVjHh-9P40xKvBa6i')"></div>
+</div>
+<figcaption class="mt-4 px-4 md:px-12 text-center font-label-md text-label-md text-on-surface-variant italic opacity-60">
+Proprietary multi-layered composite materials designed for zero-vibration cockpits.
+</figcaption>
+</figure>
+<h3 class="font-headline-md text-headline-md mb-4 mt-12">Material Science of Silence</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8 leading-relaxed">
+Beyond software, the physical architecture of the vehicle must be reimagined. We've introduced dual-pane acoustic glass with a specialized polymer interlayer that targets specific frequencies common to highway travel. Furthermore, the suspension mountings are now crafted from a bespoke elastomeric compound that decouples the chassis from the road surface, ensuring that energy is dissipated as heat rather than noise.
+</p>
+<!-- Embedded Product Link (Bento Card style) -->
+<div class="my-16 p-8 rounded-2xl glass-panel flex flex-col md:flex-row gap-8 items-center group cursor-pointer hover:border-primary/40 transition-all duration-500">
+<div class="w-full md:w-1/3 aspect-square rounded-xl overflow-hidden">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAzs_DiuEKz_zpr-Q8PlsRiAqKxPfJUoH3zaxxySfIx82xCvDAz6wJ7X96nZJ15nPjNe33zqrpUXZg29Nuv6doLuCxZ2GfjAGfBt3kMV9Jcxf5COwmuDXBJ6BYt8_lr4RWHRc3JM2rWg1NoRhgnsuOSmX2bV_a-TkfT5p7Do-ELYuM84GbFy01OtA8Eema9Z1Fykg-EolUhpktguONKeDF7Gugm1Wq3VIv9i0Ah2lfNvgizZdr2pO_81Yg1asDyhqlfCMyauZxzGqAL')"></div>
+</div>
+<div class="flex-1">
+<span class="text-primary font-label-md text-label-md uppercase tracking-widest mb-2 block">Featured Technology</span>
+<h4 class="font-headline-md text-headline-md mb-3">Sonic Signature Core v2</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 leading-snug opacity-80">
+Our flagship active noise cancellation unit. Compatible with all S-Series luxury EV platforms. Engineered for total immersion.
+</p>
+<button class="bg-primary text-on-primary px-6 py-3 rounded-lg font-label-md text-label-md flex items-center gap-2 hover:opacity-90 active:scale-95 transition-all">
+View Specifications <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8 leading-relaxed">
+As we look ahead, the goal is not just silence, but a curated sonic environment. Imagine a car that adjusts its internal soundscape based on your heart rate, or one that uses bone-conduction technology to deliver turn-by-turn navigation without a single audible word. This is the future of technological luxury—a future where every detail is deliberate, and every moment is masterfully engineered.
+</p>
+<!-- Tags & Engagement -->
+<div class="mt-20 pt-12 border-t border-outline-variant/20">
+<div class="flex flex-wrap gap-3 mb-8">
+<span class="text-on-surface-variant font-label-md text-label-md">Tagged:</span>
+<a class="text-primary hover:underline" href="blog.html">#EV</a>
+<a class="text-primary hover:underline" href="blog.html">#Acoustics</a>
+<a class="text-primary hover:underline" href="blog.html">#Engineering</a>
+<a class="text-primary hover:underline" href="blog.html">#Luxury</a>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-6">
+<button class="flex items-center gap-2 group">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-error transition-colors">favorite</span>
+<span class="font-label-md text-label-md text-on-surface-variant">1.2k</span>
+</button>
+<button class="flex items-center gap-2 group">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">mode_comment</span>
+<span class="font-label-md text-label-md text-on-surface-variant">48</span>
+</button>
+</div>
+<div class="flex items-center gap-4">
+<span class="hidden md:inline font-label-md text-label-md text-on-surface-variant">Share article:</span>
+<div class="flex gap-2">
+<button class="w-10 h-10 rounded-full border border-outline-variant/30 flex items-center justify-center hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[18px]">ios_share</span>
+</button>
+<button class="w-10 h-10 rounded-full border border-outline-variant/30 flex items-center justify-center hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[18px]">link</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Author Bio -->
+<div class="mt-16 p-8 rounded-2xl bg-surface-container-low border border-outline-variant/10 flex gap-6 items-start">
+<div class="w-20 h-20 rounded-xl overflow-hidden shrink-0 border border-outline-variant/20">
+<div class="w-full h-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCTzerszAkaLwfCMRfVPNF9c736mYA5_Se6-eNCPAD3By4faGwU1Imls_tSG7vVl6Ou-uZJH4pq9BjSMu4zL-YqopZozpjB6m-GVEFV5n6G0bUCtPSHqy-iORJph8swiCg4ob-davGbsmOQabLcMM1Suy26GTQ4vX1li26i0uXVOcjM_ky0zYUrKBKToF0pD1gaCc3xhPbLaE7CxIVYYSfjvdZ_wkL5Di9rwaQJcyFn0etSVGCWeWCCtdn9Bt4P4E0Zv2eQqmwxX6--')"></div>
+</div>
+<div>
+<h5 class="font-headline-md text-[18px] mb-1">Alexander Vane</h5>
+<p class="font-label-md text-label-md text-primary mb-3">Head of Acoustic Engineering</p>
+<p class="font-body-md text-body-md text-on-surface-variant opacity-70 mb-4">
+With over two decades of experience in high-performance NVH (Noise, Vibration, and Harshness) testing, Alexander leads the team dedicated to refining the sonic identity of AutoShop's premium fleet.
+</p>
+<div class="flex gap-4">
+<a class="font-label-md text-label-md text-on-surface hover:text-primary transition-colors" href="about.html">Twitter</a>
+<a class="font-label-md text-label-md text-on-surface hover:text-primary transition-colors" href="contact.html">LinkedIn</a>
+</div>
+</div>
+</div>
+</div>
+</article>
+<!-- Recommended Articles -->
+<section class="mt-32 px-margin-mobile md:px-margin-desktop container-max mx-auto">
+<h2 class="font-headline-lg text-headline-lg mb-12">More from the Lab</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Card 1 -->
+<div class="group cursor-pointer">
+<div class="aspect-video rounded-xl overflow-hidden mb-6 relative">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCRi-YLdz61gRixTozpocumM6B1-co2OyxqAhdrQY1OfaHl2eHl_hTPhTqmNNynlXOfVOefOp513guDElEvJtn5Ugm2lNtr6ApdCuJ578wGgqbE89Y_LYPS4hplds4kaQGkCbmliOtO5tx8hsL8Y2QG2R0j-yVAtBrTGnngJ708usX9Zsw4zUJMJunBsdedS1Kel4JAnJssqkedtR5HPkTj9mJTxwWqDwC_K1HnHRYeNBerLyDa1UELAacp_eAhDXLYyhSKldX0_SmF')"></div>
+</div>
+<span class="text-tertiary font-label-md text-label-md mb-2 block uppercase tracking-widest">Innovation</span>
+<h3 class="font-headline-md text-headline-md mb-3 group-hover:text-primary transition-colors">The Digital Showroom: VR and the Purchase Journey</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">How virtual reality is bringing the personalization process directly to our clients' homes.</p>
+</div>
+<!-- Card 2 -->
+<div class="group cursor-pointer">
+<div class="aspect-video rounded-xl overflow-hidden mb-6 relative">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAc_Hi1YPZ3jPoFuN88bdoy2qHtM6ggU6HTYymmNWec8YpmkwOWvySYcnoQDyAZU0S0vO2wlN6q4nJbYgNWl0f2aogAAU_MylylHJe2jCHsUoi1nTWBuzLFNRgxDvtJQiBYw2L0fHwajEUy6UcrldTo2Or2XI7ALBqwpn3AIFHDgrwNk577iSFnUh9HN__wKmFSvOVCE7iz3aAzq-qUg6UnQIskI8GSSGoooaC0hvF6QfokfiohEcKig2ddBobnZX9rG6xvD2AT6rPo')"></div>
+</div>
+<span class="text-tertiary font-label-md text-label-md mb-2 block uppercase tracking-widest">Performance</span>
+<h3 class="font-headline-md text-headline-md mb-3 group-hover:text-primary transition-colors">Thermal Management in Hyper-Performance Batteries</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Overcoming the limits of heat to maintain peak power delivery during track sessions.</p>
+</div>
+<!-- Card 3 -->
+<div class="group cursor-pointer">
+<div class="aspect-video rounded-xl overflow-hidden mb-6 relative">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB0ytLISUOu811F8xINoMSEwypPjJ_Mt7OHk9I6WalcPzcgMisxZDz-Ab8pL0ub8Pi7ONwJEpZd1B6mjpoqjVbCnst6usDNlVpJkJbc8GiVPWF6BAOWfqoemPkuXgftviVkk3vNwMZu1LjLJPIOVeqXQzLEMJcEJ_so0IfpN7QsTMnj96PeF2C53ygVEps3ukIYySvJJdysPrISvTfXi0Pp4bxCxCF3nEuzq6JT8k0AkY3piEaKM8P8iMbbG7dkPlFQ4yINw4SpZVLT')"></div>
+</div>
+<span class="text-tertiary font-label-md text-label-md mb-2 block uppercase tracking-widest">Design</span>
+<h3 class="font-headline-md text-headline-md mb-3 group-hover:text-primary transition-colors">Sustainable Opulence: The Rise of Bio-Materials</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Redefining high-end interiors using lab-grown materials and recycled ocean plastics.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-surface-variant flex flex-col gap-unit w-full px-margin-mobile md:px-margin-desktop py-12">
+<div class="container-max mx-auto w-full grid grid-cols-1 md:grid-cols-4 gap-12">
+<div class="col-span-1 md:col-span-2">
+<span class="font-headline-md text-headline-md text-on-surface uppercase mb-6 block">AUTOSHOP</span>
+<p class="text-on-surface-variant max-w-md mb-8">
+Defining the next century of automotive excellence through technological luxury and precision engineering.
+</p>
+<div class="flex gap-4">
+<a class="w-10 h-10 flex items-center justify-center rounded-full border border-outline-variant/30 hover:text-primary transition-colors" href="about.html">
+<span class="material-symbols-outlined text-[20px]">public</span>
+</a>
+<a class="w-10 h-10 flex items-center justify-center rounded-full border border-outline-variant/30 hover:text-primary transition-colors" href="contact.html">
+<span class="material-symbols-outlined text-[20px]">alternate_email</span>
+</a>
+<a class="w-10 h-10 flex items-center justify-center rounded-full border border-outline-variant/30 hover:text-primary transition-colors" href="blog.html">
+<span class="material-symbols-outlined text-[20px]">podcasts</span>
+</a>
+</div>
+</div>
+<div>
+<span class="font-label-md text-label-md text-on-surface uppercase tracking-widest mb-6 block">Company</span>
+<ul class="flex flex-col gap-3 text-on-surface-variant">
+<li><a class="hover:text-primary transition-colors" href="about.html">Our Story</a></li>
+<li><a class="hover:text-primary transition-colors" href="about.html">Sustainability</a></li>
+<li><a class="hover:text-primary transition-colors" href="blog.html">Press Room</a></li>
+<li><a class="hover:text-primary transition-colors" href="contact.html">Careers</a></li>
+</ul>
+</div>
+<div>
+<span class="font-label-md text-label-md text-on-surface uppercase tracking-widest mb-6 block">Support</span>
+<ul class="flex flex-col gap-3 text-on-surface-variant">
+<li><a class="hover:text-primary transition-colors" href="contact.html">Privacy</a></li>
+<li><a class="hover:text-primary transition-colors" href="contact.html">Terms</a></li>
+<li><a class="hover:text-primary transition-colors" href="contact.html">Support</a></li>
+<li><a class="hover:text-primary transition-colors" href="faq.html">Shipping</a></li>
+</ul>
+</div>
+</div>
+<div class="container-max mx-auto w-full pt-12 mt-12 border-t border-outline-variant/10 flex flex-col md:flex-row justify-between items-center gap-6">
+<span class="text-on-surface-variant text-label-md font-label-md uppercase tracking-tight">&copy; 2024 AUTOSHOP TECHNOLOGICAL LUXURY</span>
+<div class="flex gap-8">
+<span class="text-on-surface-variant font-label-md">EN / US</span>
+<span class="text-on-surface-variant font-label-md">GLOBAL REGION</span>
+</div>
+</div>
+</footer>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-2 bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-2xl rounded-t-xl border-t border-outline-variant/10 shadow-[0_-4px_40px_0_rgba(0,0,0,0.4)]">
+<a class="flex flex-col items-center justify-center text-secondary-fixed-dim hover:text-primary transition-colors" href="index.html">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-md text-label-md">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary-fixed-dim hover:text-primary transition-colors" href="shop.html">
+<span class="material-symbols-outlined">storefront</span>
+<span class="font-label-md text-label-md">Shop</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary-fixed-dim hover:text-primary transition-colors" href="wishlist.html">
+<span class="material-symbols-outlined">favorite</span>
+<span class="font-label-md text-label-md">Wishlist</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary-fixed-dim bg-primary/10 rounded-xl px-3 py-1 scale-90 transition-all duration-300" href="blog.html">
+<span class="material-symbols-outlined">feed</span>
+<span class="font-label-md text-label-md">Blog</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary-fixed-dim hover:text-primary transition-colors" href="dashboard.html">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+</nav>
+<script src="assets/js/main.js"></script>
+<script>
+window.onscroll = function() {
+  let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+  let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  let scrolled = (winScroll / height) * 100;
+  document.getElementById("scrollProgress").style.width = scrolled + "%";
+};
+document.querySelectorAll('button').forEach(button => {
+  button.addEventListener('mousedown', () => { button.classList.add('scale-95'); });
+  button.addEventListener('mouseup', () => { button.classList.remove('scale-95'); });
+  button.addEventListener('mouseleave', () => { button.classList.remove('scale-95'); });
+});
+</script>
+</body>
+</html>

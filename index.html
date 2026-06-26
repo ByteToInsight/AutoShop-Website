@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AUTOSHOP | Technological Luxury for Every Indian Road</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="assets/css/style.css" rel="stylesheet"/>
+<script src="assets/js/tailwind-config.js"></script>
+</head>
+<body class="selection:bg-primary-container selection:text-on-primary-container min-h-screen">
+<header class="top-0 sticky z-50 bg-surface/70 backdrop-blur-xl border-b border-surface-variant/20 shadow-sm flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop h-16 transition-all duration-300">
+<div class="flex items-center gap-4">
+<button data-toggle-menu class="hover:opacity-80 transition-opacity active:scale-95">
+<span class="material-symbols-outlined text-primary">menu</span>
+</button>
+<h1 class="font-display-lg-mobile text-display-lg-mobile md:text-headline-lg tracking-tighter text-on-surface uppercase">AUTOSHOP</h1>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="font-label-md text-label-md text-primary font-bold" href="index.html">Home</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="shop.html">Shop</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="about.html">About</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="blog.html">Blog</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="contact.html">Contact</a>
+</nav>
+<div class="flex items-center gap-4">
+<a id="auth-link" href="login.html" class="font-label-md text-label-md text-primary hover:underline"></a>
+<button data-toggle-search class="hover:opacity-80 transition-opacity active:scale-95">
+<span class="material-symbols-outlined text-primary">search</span>
+</button>
+<a href="cart.html" class="hover:opacity-80 transition-opacity active:scale-95 relative">
+<span class="material-symbols-outlined text-primary">shopping_bag</span>
+<span id="cart-badge" class="absolute -top-1 -right-1 bg-primary text-on-primary text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold hidden">0</span>
+</a>
+</div>
+</header>
+<main>
+<section class="relative min-h-[795px] flex flex-col justify-end overflow-hidden pb-24">
+<div class="absolute inset-0 z-0">
+<div class="w-full h-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDa4JS5kliqwOIpxmh4tXMOf25UFPWeRFpJ0YZp8ftiX3Clhd0qLYqcsjULeQHGILxCKIerY3Uj3pmp5Sy1-yR8SBxTN3dVUBAwL02HX5Fqk5pu4WO_zX5pkGoTBYltJmJuc3eujRDvwdA09hf5l5W13a6MBtvojgNRQaxkgMvPgQKx5tWPGJQVadcTDZIR89Xmz_2X1pfftd1pvsQALCl733srsg8iN_Aw6hhAj2FuG_QcXtZg_eader44pylCacPS525BZsdKe7la')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-[#0B0B0B] via-transparent to-transparent"></div>
+</div>
+<div class="relative z-10 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full">
+<p class="font-label-md text-label-md text-primary tracking-[0.3em] uppercase mb-4 reveal">Automotive Excellence</p>
+<h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface max-w-4xl leading-tight reveal">
+Precision for Every <br/><span class="text-primary">Indian Road.</span>
+</h2>
+<div class="flex flex-col sm:flex-row gap-4 mt-12 reveal">
+<a href="shop.html" class="bg-primary text-on-primary px-10 py-4 rounded-full font-label-md text-label-md hover:opacity-90 transition-opacity active:scale-95 inline-block text-center">Explore Shop</a>
+<a href="about.html" class="border border-outline-variant text-on-surface px-10 py-4 rounded-full font-label-md text-label-md hover:bg-surface-variant transition-colors active:scale-95 inline-block text-center">Our Story</a>
+</div>
+</div>
+</section>
+<section class="py-24 md:py-40 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="text-center mb-24 reveal">
+<h2 class="font-headline-lg text-headline-lg mb-4">Premium Auto Accessories</h2>
+<p class="text-on-surface-variant max-w-xl mx-auto">Curated for the modern Indian car owner. Technical luxury for every drive.</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<div class="product-card group flex flex-col bg-surface-container-low border border-surface-variant/20 rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300">
+<div class="relative aspect-square overflow-hidden bg-surface-dim">
+<img loading="lazy" class="product-image w-full h-full object-cover transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDR4H4vDmZej6G15ImqHIdlPgdWZx63ga3eUXJ_k13fFACUM0lgOQlwg0KE9FuvUPFitpDesOaKslk6A6Ebe4hNkmwnWarRhfyRKsgbgceliWuGN-4TBEtGaZTNMUSQ8ruPVG0tzGH6HLp4Wap8b-AE3MACJ1uoYBxsV-OD275dM6gS8mOf9ZUYvqwXfe3AXEI3jakcGLKorzPV4zXp0S7q_0ZAXFAUWkN0tYdwT6Jqg5s5cW96veStV2pHbSQ-O_L5bwdSuUzPalmO" alt="Pro-Guard 4K Dashcam"/>
+<div class="absolute top-4 left-4 glass-panel px-3 py-1 rounded-full border border-white/10">
+<span class="font-label-md text-[10px] uppercase tracking-widest text-primary">Must Have</span>
+</div>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-headline-md text-body-lg text-on-surface">Pro-Guard 4K Dashcam</h3>
+<span class="text-primary font-headline-md text-body-lg">₹14,999</span>
+</div>
+<p class="text-on-surface-variant text-label-md mb-6">Dual Channel • Sony Starvis Sensor</p>
+<a href="product-details.html" class="mt-auto w-full bg-secondary-container hover:bg-primary hover:text-on-primary text-on-surface font-label-md py-3 rounded-lg transition-all active:scale-95 text-center block">View Details</a>
+</div>
+</div>
+<div class="product-card group flex flex-col bg-surface-container-low border border-surface-variant/20 rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300">
+<div class="relative aspect-square overflow-hidden bg-surface-dim">
+<img loading="lazy" class="product-image w-full h-full object-cover transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDu30oSefAzkgQN-SDdDyNlJw5bxasFbhviLJKx7EK9nw-_mgQjFw8FFqBUdx0tLojvRu_d1-j-T_Y29TXggyEnv6vIeXCke0CoDmV4qjYomKL_1DFCkCk0batx9LxvQFZ-fZVGiXfkuikzuROEMdJFq7YIIJoDpOEyJElnyaVh89c4qabafI2_edngm_FWX7ZSUhiY8ghcOD8-lHWWfzucKWQV8FATQz29I5eobOlYqWbGnjnaSiP4r7TRLFA_u-GRnClqE_RHjro4" alt="Custom Nappa Covers"/>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-headline-md text-body-lg text-on-surface">Custom Nappa Covers</h3>
+<span class="text-primary font-headline-md text-body-lg">₹28,500</span>
+</div>
+<p class="text-on-surface-variant text-label-md mb-6">Mahindra/Tata Custom Fit • Tan</p>
+<a href="product-details.html" class="mt-auto w-full bg-secondary-container hover:bg-primary hover:text-on-primary text-on-surface font-label-md py-3 rounded-lg transition-all active:scale-95 text-center block">View Details</a>
+</div>
+</div>
+<div class="product-card group flex flex-col bg-surface-container-low border border-surface-variant/20 rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300">
+<div class="relative aspect-square overflow-hidden bg-surface-dim">
+<img loading="lazy" class="product-image w-full h-full object-cover transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGCwwhykNS7c0Qcx7c81ws-dhaFRDJh20CAP7TgQaS5ivNOO7SxhK3cmJ473_1Yw0nDyrZxcxemjAfRl3aeB-SyVQBaGWecsEA-1Q9AMol3bg8Ml-piud24J1QgkVAHXu8ipSin1EWk5x2J9iMQkPMFH29TgfHzQwZDP_2t31-4kUTcrjF8uTR91bRKPpnEfcbMToIPct-WjwXbM2IKHyhKzFHeBL4EFGvEn1H8jx-Yy7PV25x3adYQvpCW40eAAK-OvxKilj0Mpnd" alt="LumiFlow RGB Kit"/>
+<div class="absolute top-4 left-4 glass-panel px-3 py-1 rounded-full border border-white/10">
+<span class="font-label-md text-[10px] uppercase tracking-widest text-primary">App Controlled</span>
+</div>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-headline-md text-body-lg text-on-surface">LumiFlow RGB Kit</h3>
+<span class="text-primary font-headline-md text-body-lg">₹8,999</span>
+</div>
+<p class="text-on-surface-variant text-label-md mb-6">64 Color • App Controlled • Stealth</p>
+<a href="product-details.html" class="mt-auto w-full bg-secondary-container hover:bg-primary hover:text-on-primary text-on-surface font-label-md py-3 rounded-lg transition-all active:scale-95 text-center block">View Details</a>
+</div>
+</div>
+<div class="product-card group flex flex-col bg-surface-container-low border border-surface-variant/20 rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300">
+<div class="relative aspect-square overflow-hidden bg-surface-dim">
+<img loading="lazy" class="product-image w-full h-full object-cover transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPLXUYUmZZb8Rk3wYZ-PRrL3Kdm78mUj8XVbzVx1m8AnYxqovF_7iRxH7g_VH5CtBG8dIlglaeIMonwFe0g7UcIMmk0mOAAlsBLveMmpLZmj-legt9GX5f7M56trq6u4oZaNlKzFcVibswDM4CEHOrkyNzSn1mNJBBGm2njifvFVAl9YUEKMvtpQRZHQaabtsihQDA0kBRAvcy5WR0_Qxnwo7kw-zohyLRKLtnhubSdeIcQBS-B6_lHHRZXEEN4-jdHIh8tsT0Fmd4" alt="7D Carbon Floor Mats"/>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-headline-md text-body-lg text-on-surface">7D Carbon Floor Mats</h3>
+<span class="text-primary font-headline-md text-body-lg">₹6,450</span>
+</div>
+<p class="text-on-surface-variant text-label-md mb-6">Waterproof • Dust-Trap Technology</p>
+<a href="product-details.html" class="mt-auto w-full bg-secondary-container hover:bg-primary hover:text-on-primary text-on-surface font-label-md py-3 rounded-lg transition-all active:scale-95 text-center block">View Details</a>
+</div>
+</div>
+</div>
+<div class="text-center mt-12 reveal">
+<a href="shop.html" class="inline-block border border-primary text-primary px-10 py-4 rounded-full font-label-md text-label-md hover:bg-primary hover:text-on-primary transition-colors active:scale-95">View All Products</a>
+</div>
+</section>
+<section class="bg-surface-container-lowest py-24 md:py-40">
+<div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="text-center mb-24 reveal">
+<h2 class="font-headline-lg text-headline-lg mb-4">Our Methodology</h2>
+<p class="text-on-surface-variant max-w-xl mx-auto">Uncompromising attention to detail. Technological Luxury for the real world.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="md:col-span-2 bg-surface-container p-8 rounded-xl border border-outline-variant/10 reveal group hover:border-primary/30 transition-colors">
+<span class="material-symbols-outlined text-primary text-4xl mb-6">precision_manufacturing</span>
+<h4 class="font-headline-md text-headline-md mb-4">Micron-Perfect Assembly</h4>
+<p class="text-on-surface-variant mb-8 max-w-md">Every chassis is measured by laser interferometers to ensure structural integrity that exceeds global safety standards by 40%.</p>
+<div class="w-full h-64 bg-cover bg-center rounded-lg" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDjIy-TPP6LHJt5H7kq0q5BtDLuFAYuZc5UavDxKluYRcqOSTxvicr_UViKmVCSjy9W8aItjehQ2GFe9X9HJpYs_eQjSZqjeYFmD0jYzG_RnQ3JKciSRxuUdU541u73ccIWHcX5UEgfP1NriMO0HK_Sr2Tsz5VQmBcfhWO6xd7S605b3h3nIW-4U1MvewvZU0kDxMKOUSaa7gg_LcUOqSw9AkYlO2BCVgfoANDsCFw_F6HE6492oYXw4UDblcXhJDN1Drdv696X-h5z')"></div>
+</div>
+<div class="bg-surface-container-high p-8 rounded-xl border border-outline-variant/10 reveal flex flex-col justify-between group hover:border-primary/30 transition-colors">
+<div>
+<span class="material-symbols-outlined text-primary text-4xl mb-6">bolt</span>
+<h4 class="font-headline-md text-headline-md mb-4">Electrified Legacy</h4>
+<p class="text-on-surface-variant">Our proprietary battery architecture was developed in-house to withstand the diverse Indian climate, from the heat of Rajasthan to the cold of Ladakh.</p>
+</div>
+<div class="mt-8 pt-8 border-t border-outline-variant/20">
+<span class="font-display-lg-mobile text-display-lg-mobile text-primary/20 group-hover:text-primary/40 transition-colors">0.22 Cd</span>
+<p class="font-label-md text-label-md text-on-surface-variant">Drag Coefficient</p>
+</div>
+</div>
+<div class="bg-surface-container-low p-8 rounded-xl border border-outline-variant/10 reveal group hover:border-primary/30 transition-colors">
+<span class="material-symbols-outlined text-primary text-4xl mb-6">palette</span>
+<h4 class="font-headline-md text-headline-md mb-4">Bespoke Aesthetics</h4>
+<p class="text-on-surface-variant">Hand-stitched interiors utilizing sustainable Mysore silk blends and recycled carbon fibers.</p>
+</div>
+<div class="md:col-span-2 bg-surface p-8 rounded-xl border border-outline-variant/10 reveal flex flex-col md:flex-row gap-8 items-center group hover:border-primary/30 transition-colors">
+<div class="w-full md:w-1/2 h-full bg-cover bg-center rounded-lg min-h-[200px]" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCF7dUtPglVaN404UPe5-m1yPFQSJ28gZ2gzXlvQyut7Hq_TezeDzgzav2M886G1j_DWXZeN8j1exg--1CRriYLnrr9yFFElozltYzxSIiTOPgoW_IzSYPJEX74zZ0aswuKN09QRLDEbDMHelEs6mbZK69__gdMMPWVACrXuDWkOVgj51GBL3NhbCtnbXWApaw553AehbnPmSLArEGxcGfIGgWjYoDZsVLm6dB8ShsIlje_QVcua2mPMLVgc9uTEN5kpycUaR-5xSIV')"></div>
+<div class="md:w-1/2">
+<h4 class="font-headline-md text-headline-md mb-4">The Intelligent Cockpit</h4>
+<p class="text-on-surface-variant">AI-driven interfaces that learn your driving habits and pre-condition the vehicle for your specific physiological comfort, adapted for Indian city commutes.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 md:py-40 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="relative bg-primary-container/10 border border-primary/20 rounded-3xl p-12 md:p-24 overflow-hidden reveal">
+<div class="absolute top-0 right-0 w-1/2 h-full opacity-20 pointer-events-none">
+<div class="w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary to-transparent"></div>
+</div>
+<div class="relative z-10 max-w-2xl">
+<h2 class="font-display-lg-mobile md:font-headline-lg text-display-lg-mobile md:text-headline-lg mb-8">Ready to experience premium excellence on every road?</h2>
+<div class="flex flex-col sm:flex-row gap-4">
+<a href="shop.html" class="bg-primary text-on-primary px-10 py-4 rounded-full font-label-md text-label-md hover:opacity-90 transition-opacity active:scale-95 inline-block text-center">Shop Now</a>
+<a href="about.html" class="border border-outline-variant text-on-surface px-10 py-4 rounded-full font-label-md text-label-md hover:bg-surface-variant transition-colors active:scale-95 inline-block text-center">Learn More</a>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-surface-container-lowest border-t border-surface-variant py-12 px-margin-mobile md:px-margin-desktop">
+<div class="max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-unit">
+<div class="flex flex-col items-center md:items-start gap-4">
+<h3 class="font-headline-md text-headline-md text-on-surface tracking-tighter uppercase">AUTOSHOP</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xs text-center md:text-left">The pinnacle of technological luxury, engineered for those who demand excellence on every road.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-8 my-8 md:my-0">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary-fixed transition-colors" href="about.html">About</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary-fixed transition-colors" href="shop.html">Shop</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary-fixed transition-colors" href="blog.html">Blog</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary-fixed transition-colors" href="contact.html">Contact</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary-fixed transition-colors" href="faq.html">FAQ</a>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">© 2024 AUTOSHOP TECHNOLOGICAL LUXURY</p>
+</div>
+</footer>
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 bg-surface/80 backdrop-blur-2xl border-t border-outline-variant/10 rounded-t-xl shadow-[0_-4px_40px_0_rgba(0,0,0,0.4)] flex justify-around items-center px-4 pb-6 pt-2">
+<a href="index.html" class="flex flex-col items-center justify-center text-primary-fixed-dim bg-primary/10 rounded-xl px-3 py-1 scale-90 transition-all duration-300">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-md text-label-md">Home</span>
+</a>
+<a href="shop.html" class="flex flex-col items-center justify-center text-secondary-fixed-dim hover:text-primary transition-colors">
+<span class="material-symbols-outlined">storefront</span>
+<span class="font-label-md text-label-md">Shop</span>
+</a>
+<a href="wishlist.html" class="flex flex-col items-center justify-center text-secondary-fixed-dim hover:text-primary transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+<span class="font-label-md text-label-md">Saved</span>
+</a>
+<a href="dashboard.html" class="flex flex-col items-center justify-center text-secondary-fixed-dim hover:text-primary transition-colors">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-md text-label-md">Profile</span>
+</a>
+</nav>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

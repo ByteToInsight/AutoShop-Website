@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Checkout | AUTOSHOP</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="assets/css/style.css" rel="stylesheet"/>
+<script src="assets/js/tailwind-config.js"></script>
+</head>
+<body class="bg-background min-h-screen pb-24">
+<!-- Top Navigation Bar -->
+<header class="top-0 sticky z-50 bg-surface/70 backdrop-blur-xl border-b border-surface-variant/20 shadow-sm flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop h-16 transition-all duration-300">
+<div class="flex items-center gap-4">
+<button onclick="history.back()" class="hover:opacity-80 transition-opacity active:scale-95">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</button>
+<h1 class="font-display-lg-mobile text-display-lg-mobile md:text-headline-lg tracking-tighter text-on-surface uppercase">AUTOSHOP</h1>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="index.html">Home</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="shop.html">Shop</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="about.html">About</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="blog.html">Blog</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="contact.html">Contact</a>
+</nav>
+<div class="flex items-center gap-4">
+<a id="auth-link" href="login.html" class="font-label-md text-label-md text-primary hover:underline hidden md:inline"></a>
+<span class="font-label-md text-label-md text-on-surface-variant hidden md:block uppercase">Secure Checkout — India</span>
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">lock</span>
+</div>
+</header>
+<main class="pt-28 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+<!-- Left Column: Checkout Steps -->
+<div class="lg:col-span-8 space-y-6">
+<!-- Step 1: Shipping -->
+<div class="accordion-item active glass rounded-xl overflow-hidden" id="step-1">
+<button class="w-full flex items-center justify-between p-6 text-left hover:bg-surface-container transition-colors" onclick="toggleStep(1)">
+<div class="flex items-center gap-4">
+<div class="step-indicator w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm bg-surface-container-high border border-outline-variant transition-all">1</div>
+<h2 class="font-headline-md text-headline-md">Shipping Details</h2>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">expand_more</span>
+</button>
+<div class="accordion-content border-t border-outline-variant/10">
+<div class="p-6 space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-on-surface-variant">FIRST NAME</label>
+<input id="input-first-name" class="bg-black border border-outline-variant rounded-lg p-3 text-on-surface placeholder:text-on-secondary-fixed-variant" placeholder="Arjun" type="text"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-on-surface-variant">LAST NAME</label>
+<input id="input-last-name" class="bg-black border border-outline-variant rounded-lg p-3 text-on-surface" placeholder="Mehta" type="text"/>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-on-surface-variant">EMAIL ADDRESS</label>
+<input id="input-email" class="bg-black border border-outline-variant rounded-lg p-3 text-on-surface" placeholder="arjun@example.com" type="email"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-on-surface-variant">STREET ADDRESS / LOCALITY</label>
+<input id="input-address" class="bg-black border border-outline-variant rounded-lg p-3 text-on-surface" placeholder="Flat No. 402, Skyline Residency, Bandra West" type="text"/>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-on-surface-variant">CITY</label>
+<input id="input-city" class="bg-black border border-outline-variant rounded-lg p-3 text-on-surface" placeholder="Mumbai" type="text"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-on-surface-variant">PINCODE</label>
+<input id="input-pincode" class="bg-black border border-outline-variant rounded-lg p-3 text-on-surface" maxlength="6" placeholder="400050" type="text"/>
+</div>
+<div class="flex flex-col gap-2 col-span-2 md:col-span-1">
+<label class="font-label-md text-on-surface-variant">STATE</label>
+<select id="input-state" class="bg-black border border-outline-variant rounded-lg p-3 text-on-surface">
+<option>Maharashtra</option>
+<option>Karnataka</option>
+<option>Delhi</option>
+<option>Tamil Nadu</option>
+<option>Gujarat</option>
+<option>Telangana</option>
+<option>West Bengal</option>
+<option>Haryana</option>
+</select>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-on-surface-variant">MOBILE NUMBER</label>
+<div class="flex">
+<span class="bg-surface-container-high border border-r-0 border-outline-variant rounded-l-lg p-3 text-on-surface-variant">+91</span>
+<input id="input-phone" class="flex-1 bg-black border border-outline-variant rounded-r-lg p-3 text-on-surface" placeholder="98765 43210" type="tel"/>
+</div>
+</div>
+<div class="flex justify-end pt-4">
+<button class="bg-[#3B82F6] text-white px-8 py-3 rounded-lg font-bold shadow-[0_4px_12px_rgba(59,130,246,0.4)] hover:opacity-90 active:scale-95 transition-all" onclick="toggleStep(2)">
+CONTINUE TO PAYMENT
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Step 2: Payment -->
+<div class="accordion-item glass rounded-xl overflow-hidden" id="step-2">
+<button class="w-full flex items-center justify-between p-6 text-left hover:bg-surface-container transition-colors" onclick="toggleStep(2)">
+<div class="flex items-center gap-4">
+<div class="step-indicator w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm bg-surface-container-high border border-outline-variant transition-all">2</div>
+<h2 class="font-headline-md text-headline-md">Payment Method</h2>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">expand_more</span>
+</button>
+<div class="accordion-content border-t border-outline-variant/10">
+<div class="p-6 space-y-8">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="relative">
+<input checked="" class="hidden custom-radio" id="upi" name="payment" onchange="togglePaymentFields('upi-fields')" type="radio"/>
+<label class="flex flex-col h-full p-4 border border-outline-variant rounded-xl cursor-pointer hover:border-primary/50 transition-all" for="upi">
+<div class="flex justify-between items-center mb-4">
+<span class="material-symbols-outlined text-primary">account_balance</span>
+<span class="font-label-md text-xs opacity-60">INSTANT</span>
+</div>
+<span class="font-bold">UPI Payment</span>
+<span class="text-xs text-on-surface-variant mt-1">Google Pay, PhonePe, Paytm</span>
+</label>
+</div>
+<div class="relative">
+<input class="hidden custom-radio" id="card" name="payment" onchange="togglePaymentFields('card-fields')" type="radio"/>
+<label class="flex flex-col h-full p-4 border border-outline-variant rounded-xl cursor-pointer hover:border-primary/50 transition-all" for="card">
+<div class="flex justify-between items-center mb-4">
+<span class="material-symbols-outlined text-primary">credit_card</span>
+<span class="font-label-md text-xs opacity-60">SECURE</span>
+</div>
+<span class="font-bold">Credit / Debit Card</span>
+<span class="text-xs text-on-surface-variant mt-1">Visa, Mastercard, RuPay</span>
+</label>
+</div>
+</div>
+<!-- UPI Specific Fields -->
+<div class="space-y-4 pt-4 border-t border-outline-variant/10" id="upi-fields">
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-on-surface-variant uppercase text-xs">Enter UPI ID</label>
+<div class="relative">
+<input class="w-full bg-black border border-outline-variant rounded-lg p-3 text-on-surface pl-12" placeholder="username@upi" type="text"/>
+<span class="material-symbols-outlined absolute left-3 top-3 text-on-surface-variant">qr_code</span>
+</div>
+<p class="text-[10px] text-on-surface-variant">A request will be sent to your UPI app</p>
+</div>
+</div>
+<!-- Card Fields (Hidden by default based on UPI being checked) -->
+<div class="space-y-4 pt-4 border-t border-outline-variant/10 hidden" id="card-fields">
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-on-surface-variant uppercase text-xs">Card Number</label>
+<div class="relative">
+<input class="w-full bg-black border border-outline-variant rounded-lg p-3 text-on-surface pl-12" placeholder="0000 0000 0000 0000" type="text"/>
+<span class="material-symbols-outlined absolute left-3 top-3 text-on-surface-variant">payments</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-on-surface-variant uppercase text-xs">Expiry Date</label>
+<input class="bg-black border border-outline-variant rounded-lg p-3 text-on-surface" placeholder="MM / YY" type="text"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-on-surface-variant uppercase text-xs">CVV</label>
+<input class="bg-black border border-outline-variant rounded-lg p-3 text-on-surface" placeholder="***" type="password"/>
+</div>
+</div>
+</div>
+<div class="flex justify-end">
+<button class="bg-[#3B82F6] text-white px-8 py-3 rounded-lg font-bold shadow-[0_4px_12px_rgba(59,130,246,0.4)] hover:opacity-90 active:scale-95 transition-all" onclick="toggleStep(3)">
+REVIEW ORDER
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Step 3: Review -->
+<div class="accordion-item glass rounded-xl overflow-hidden" id="step-3">
+<button class="w-full flex items-center justify-between p-6 text-left hover:bg-surface-container transition-colors" onclick="toggleStep(3)">
+<div class="flex items-center gap-4">
+<div class="step-indicator w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm bg-surface-container-high border border-outline-variant transition-all">3</div>
+<h2 class="font-headline-md text-headline-md">Order Review</h2>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">expand_more</span>
+</button>
+<div class="accordion-content border-t border-outline-variant/10">
+<div class="p-6 space-y-6">
+<div id="order-review-items"></div>
+<div class="bg-primary/5 border border-primary/20 rounded-lg p-4 flex items-center gap-4">
+<span class="material-symbols-outlined text-primary">verified</span>
+<p class="text-sm">By placing your order, you agree to AUTOSHOP's <a class="text-primary underline" href="faq.html">Terms of Service</a> and <a class="text-primary underline" href="contact.html">Privacy Policy</a>.</p>
+</div>
+<button class="w-full bg-[#3B82F6] text-white py-5 rounded-xl font-extrabold text-xl shadow-[0_8px_30px_rgba(59,130,246,0.4)] hover:shadow-[0_12px_40px_rgba(59,130,246,0.6)] active:scale-95 transition-all flex items-center justify-center gap-3" id="placeOrderBtn">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">lock</span>
+PLACE SECURE ORDER — ₹3,59,939
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Order Summary (Sticky) -->
+<div class="lg:col-span-4">
+<div class="sticky top-28 space-y-6">
+<div class="glass rounded-xl p-6 shadow-xl">
+<h3 class="font-headline-md text-headline-md mb-6">Order Summary</h3>
+<div class="space-y-4 mb-6">
+<div class="flex justify-between text-on-surface-variant">
+<span>Subtotal</span>
+<span class="text-on-surface" id="checkout-subtotal">₹0</span>
+</div>
+<div class="flex justify-between text-on-surface-variant">
+<span>Shipping</span>
+<span class="text-green-400" id="checkout-shipping">FREE</span>
+</div>
+<div class="flex justify-between text-on-surface-variant">
+<span>Estimated GST (18%)</span>
+<span class="text-on-surface" id="checkout-gst">₹0</span>
+</div>
+</div>
+<div class="pt-6 border-t border-outline-variant flex justify-between items-end mb-8">
+<div class="flex flex-col">
+<span class="font-label-md text-xs text-on-surface-variant">TOTAL AMOUNT</span>
+<span class="font-display-lg-mobile text-3xl text-primary" id="checkout-total">₹0</span>
+</div>
+</div>
+<div class="relative">
+<input class="w-full bg-black border border-outline-variant rounded-lg p-3 text-on-surface pr-24" placeholder="Promo Code" type="text"/>
+<button class="absolute right-2 top-2 bottom-2 px-4 bg-surface-container-high rounded-md text-xs font-bold hover:bg-surface-variant transition-colors">APPLY</button>
+</div>
+</div>
+<!-- Trust Badges -->
+<div class="grid grid-cols-2 gap-4">
+<div class="glass rounded-lg p-4 flex flex-col items-center justify-center text-center gap-2">
+<span class="material-symbols-outlined text-primary">shield</span>
+<span class="text-[10px] font-bold tracking-widest uppercase">2-Year Warranty</span>
+</div>
+<div class="glass rounded-lg p-4 flex flex-col items-center justify-center text-center gap-2">
+<span class="material-symbols-outlined text-primary">local_shipping</span>
+<span class="text-[10px] font-bold tracking-widest uppercase">Pan-India Express</span>
+</div>
+</div>
+<div class="text-center">
+<p class="text-xs text-on-surface-variant italic">Powered by Autoshop Technological Luxury Payments (India)</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Success Message (Initially Hidden) -->
+<div class="fixed inset-0 bg-black/90 backdrop-blur-3xl z-[100] flex flex-col items-center justify-center p-6 hidden opacity-0 transition-opacity duration-700" id="success-overlay">
+<div class="max-w-md w-full text-center space-y-8">
+<div class="w-24 h-24 bg-primary/20 text-primary rounded-full flex items-center justify-center mx-auto mb-4 border border-primary/40 animate-pulse">
+<span class="material-symbols-outlined text-5xl" style="font-variation-settings: 'wght' 700;">check</span>
+</div>
+<h2 class="font-display-lg text-4xl md:text-5xl text-on-surface tracking-tight">Transmission Complete</h2>
+<p class="text-on-surface-variant text-lg">Your order <span class="text-primary" id="success-order-number">#AS-IN-00000</span> has been processed. We've notified our engineering team to begin preparation.</p>
+<div class="pt-8">
+<button class="bg-white text-black px-12 py-4 rounded-full font-bold hover:scale-105 active:scale-95 transition-all" onclick="window.location.href='shop.html'">
+BACK TO SHOP
+</button>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-surface-variant py-12 px-margin-mobile md:px-margin-desktop">
+<div class="max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-unit">
+<div class="flex flex-col items-center md:items-start gap-4">
+<h3 class="font-headline-md text-headline-md text-on-surface tracking-tighter uppercase">AUTOSHOP</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xs text-center md:text-left">The pinnacle of technological luxury, engineered for those who demand excellence on every road.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-8 my-8 md:my-0">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary-fixed transition-colors" href="about.html">About</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary-fixed transition-colors" href="shop.html">Shop</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary-fixed transition-colors" href="blog.html">Blog</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary-fixed transition-colors" href="contact.html">Contact</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary-fixed transition-colors" href="faq.html">FAQ</a>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">&#169; 2024 AUTOSHOP TECHNOLOGICAL LUXURY</p>
+</div>
+</footer>
+<!-- Bottom Nav (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 bg-surface/80 backdrop-blur-2xl border-t border-outline-variant/10 rounded-t-xl shadow-[0_-4px_40px_0_rgba(0,0,0,0.4)] flex justify-around items-center px-4 pb-6 pt-2">
+<a class="flex flex-col items-center justify-center text-secondary-fixed-dim hover:text-primary transition-colors" href="index.html">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-md text-label-md">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary-fixed-dim hover:text-primary transition-colors" href="shop.html">
+<span class="material-symbols-outlined">storefront</span>
+<span class="font-label-md text-label-md">Shop</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary-fixed-dim hover:text-primary transition-colors" href="wishlist.html">
+<span class="material-symbols-outlined">favorite</span>
+<span class="font-label-md text-label-md">Saved</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary-fixed-dim hover:text-primary transition-colors" href="dashboard.html">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-md text-label-md">Profile</span>
+</a>
+</nav>
+<script src="assets/js/main.js"></script>
+<script>
+        function getCart() {
+            return JSON.parse(localStorage.getItem('autoshop_cart') || '[]');
+        }
+
+        function showSuccessOverlay(orderNumber) {
+            const overlay = document.getElementById('success-overlay');
+            const orderSpan = document.getElementById('success-order-number');
+            if (orderSpan && orderNumber) {
+                orderSpan.textContent = orderNumber;
+            }
+            overlay.classList.remove('hidden', 'opacity-0');
+            overlay.classList.add('flex');
+            setTimeout(function () {
+                overlay.classList.remove('opacity-0');
+            }, 10);
+        }
+
+        function renderOrderSummary() {
+            const cart = getCart();
+            const subtotal = cart.reduce(function (s, item) {
+                return s + item.price * item.quantity;
+            }, 0);
+            const shipping = subtotal >= 40000 ? 0 : 450;
+            const gst = Math.round(subtotal * 0.18);
+            const total = subtotal + shipping + gst;
+
+            document.getElementById('checkout-subtotal').textContent = '\u20B9' + subtotal.toLocaleString('en-IN');
+            document.getElementById('checkout-shipping').textContent = shipping === 0 ? 'FREE' : '\u20B9' + shipping.toLocaleString('en-IN');
+            document.getElementById('checkout-gst').textContent = '\u20B9' + gst.toLocaleString('en-IN');
+            document.getElementById('checkout-total').textContent = '\u20B9' + total.toLocaleString('en-IN');
+
+            var btn = document.getElementById('placeOrderBtn');
+            if (btn) {
+                btn.innerHTML = '<span class="material-symbols-outlined" style="font-variation-settings: \'FILL\' 1;">lock</span> PLACE SECURE ORDER \u2014 \u20B9' + total.toLocaleString('en-IN');
+            }
+
+            var container = document.getElementById('order-review-items');
+            if (container) {
+                container.innerHTML = cart.map(function (item) {
+                    return '<div class="flex items-start gap-4 p-4 rounded-lg bg-surface-container-low border border-outline-variant/20">' +
+                        '<div class="w-24 h-24 rounded-lg bg-black flex-shrink-0">' +
+                        '<img loading="lazy" alt="' + item.name + '" class="w-full h-full object-cover rounded-lg" src="' + item.image_url + '">' +
+                        '</div>' +
+                        '<div class="flex-grow">' +
+                        '<div class="flex justify-between">' +
+                        '<h3 class="font-bold text-lg">' + item.name + '</h3>' +
+                        '<span class="font-bold text-primary">\u20B9' + (item.price * item.quantity).toLocaleString('en-IN') + '</span>' +
+                        '</div>' +
+                        '<p class="text-sm text-on-surface-variant mt-1">Qty: ' + item.quantity + ' \u00d7 \u20B9' + item.price.toLocaleString('en-IN') + '</p>' +
+                        '</div>' +
+                        '</div>';
+                }).join('');
+            }
+        }
+
+        function toggleStep(step) {
+            for (var i = 1; i <= 3; i++) {
+                var el = document.getElementById('step-' + i);
+                if (el) {
+                    if (i === step) {
+                        el.classList.add('active');
+                        var content = el.querySelector('.accordion-content');
+                        if (content) {
+                            content.style.maxHeight = content.scrollHeight + 'px';
+                            content.style.opacity = '1';
+                        }
+                    } else {
+                        el.classList.remove('active');
+                        var content = el.querySelector('.accordion-content');
+                        if (content) {
+                            content.style.maxHeight = '0';
+                            content.style.opacity = '0';
+                        }
+                    }
+                }
+            }
+        }
+
+        function togglePaymentFields(id) {
+            document.getElementById('upi-fields').classList.add('hidden');
+            document.getElementById('card-fields').classList.add('hidden');
+            document.getElementById(id).classList.remove('hidden');
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            renderOrderSummary();
+
+            document.getElementById('placeOrderBtn').addEventListener('click', function () {
+                var cart = getCart();
+                if (cart.length === 0) {
+                    alert('Your cart is empty.');
+                    return;
+                }
+
+                var firstName = document.getElementById('input-first-name').value.trim();
+                var lastName = document.getElementById('input-last-name').value.trim();
+                var email = document.getElementById('input-email').value.trim();
+                var address = document.getElementById('input-address').value.trim();
+                var city = document.getElementById('input-city').value.trim();
+                var pincode = document.getElementById('input-pincode').value.trim();
+                var state = document.getElementById('input-state').value;
+                var phone = document.getElementById('input-phone').value.trim();
+
+                if (!firstName || !lastName || !email || !address || !city || !pincode || !phone) {
+                    alert('Please fill in all required fields.');
+                    return;
+                }
+
+                var paymentMethod = document.querySelector('input[name="payment"]:checked');
+                paymentMethod = paymentMethod ? paymentMethod.id.toUpperCase() : 'UPI';
+
+                var subtotal = cart.reduce(function (s, item) {
+                    return s + item.price * item.quantity;
+                }, 0);
+                var shipping = subtotal >= 40000 ? 0 : 450;
+                var gst = Math.round(subtotal * 0.18);
+                var total = subtotal + shipping + gst;
+
+                var items = cart.map(function (item) {
+                    return {
+                        id: item.id,
+                        slug: item.slug,
+                        name: item.name,
+                        price: item.price,
+                        quantity: item.quantity
+                    };
+                });
+
+                var payload = {
+                    name: firstName + ' ' + lastName,
+                    email: email,
+                    phone: phone,
+                    address: address,
+                    city: city,
+                    state: state,
+                    pincode: pincode,
+                    items: items,
+                    total: total,
+                    payment_method: paymentMethod
+                };
+
+                var btn = this;
+                btn.disabled = true;
+                btn.innerHTML = '<span class="material-symbols-outlined" style="font-variation-settings: \'FILL\' 1;">sync</span> PROCESSING...';
+
+                fetch('/api/orders', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                })
+                .then(function (res) {
+                    if (!res.ok) throw new Error('Server responded with ' + res.status);
+                    return res.json();
+                })
+                .then(function (data) {
+                    localStorage.removeItem('autoshop_cart');
+                    var orderNum = data.order_number || '#AS-IN-' + Date.now();
+                    if (orderNum.indexOf('#') !== 0) orderNum = '#' + orderNum;
+                    showSuccessOverlay(orderNum);
+                })
+                .catch(function (err) {
+                    alert('Order failed: ' + err.message);
+                    btn.disabled = false;
+                    btn.innerHTML = '<span class="material-symbols-outlined" style="font-variation-settings: \'FILL\' 1;">lock</span> PLACE SECURE ORDER';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+backend/__pycache__/
+backend/autoshop.db
+.env
+*.egg-info/
+dist/
+build/

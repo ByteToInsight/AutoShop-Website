@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AUTOSHOP | Compare Products</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="assets/css/style.css" rel="stylesheet"/>
+<script src="assets/js/tailwind-config.js"></script>
+</head>
+<body class="selection:bg-primary-container selection:text-on-primary-container">
+<header class="top-0 sticky z-50 bg-surface/70 backdrop-blur-xl border-b border-surface-variant/20 shadow-sm flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop h-16 transition-all duration-300">
+<div class="flex items-center gap-4">
+<button data-toggle-menu class="hover:opacity-80 transition-opacity active:scale-95">
+<span class="material-symbols-outlined text-primary">menu</span>
+</button>
+<h1 class="font-display-lg-mobile text-display-lg-mobile md:text-headline-lg tracking-tighter text-on-surface uppercase">AUTOSHOP</h1>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="index.html">Home</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="shop.html">Shop</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="about.html">About</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="blog.html">Blog</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="contact.html">Contact</a>
+</nav>
+<div class="flex items-center gap-4">
+<a id="auth-link" href="login.html" class="font-label-md text-label-md text-primary hover:underline"></a>
+<button data-toggle-search class="hover:opacity-80 transition-opacity active:scale-95">
+<span class="material-symbols-outlined text-primary">search</span>
+</button>
+<a href="cart.html" class="hover:opacity-80 transition-opacity active:scale-95 relative">
+<span class="material-symbols-outlined text-primary">shopping_bag</span>
+<span id="cart-badge" class="absolute -top-1 -right-1 bg-primary text-on-primary text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold hidden">0</span>
+</a>
+</div>
+</header>
+<main class="min-h-screen pt-12 pb-32">
+<section class="px-margin-mobile md:px-margin-desktop mb-12">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<span class="text-primary font-label-md text-label-md tracking-widest uppercase mb-2 block">Premium Accessories</span>
+<h2 class="font-headline-lg text-headline-lg md:text-display-lg md:font-display-lg text-on-surface">Compare Essentials</h2>
+</div>
+<div class="flex gap-4">
+<button class="bg-surface-container-high border border-outline-variant/30 px-6 py-3 rounded-lg font-label-md text-label-md flex items-center gap-2 hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[18px]">filter_list</span>
+Clear All
+</button>
+<button class="bg-[#3B82F6] text-white inner-glow px-6 py-3 rounded-lg font-label-md text-label-md hover:opacity-90 transition-opacity">
+Share Comparison
+</button>
+</div>
+</div>
+</section>
+<section class="relative">
+<div class="overflow-x-auto custom-scrollbar gradient-mask-r pb-8">
+<div class="comparison-grid min-w-max border-t border-b border-outline-variant/10">
+<div class="bg-surface-dim/95 backdrop-blur-md sticky left-0 z-10 border-r border-outline-variant/10 p-8 flex flex-col justify-between h-full min-h-[500px]">
+<div class="space-y-32">
+<div class="h-64 invisible">Spacer</div>
+<div class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest">Quality</div>
+<div class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest">Features</div>
+<div class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest">Technical</div>
+<div class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest">Compatibility</div>
+</div>
+</div>
+<div class="p-8 border-r border-outline-variant/10 hover:bg-surface-container-low transition-colors group">
+<div class="h-64 relative mb-8 rounded-xl overflow-hidden bg-surface-container-highest">
+<img loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Luxurious 7D black car floor mats with gold diamond stitching, custom fit for a modern Indian SUV interior, displayed in a high-end garage setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA39DrQ8imCoLBGbYTex__hBr0YhFXuLBYWJcrhogwzbc5poLSvECYrar-HGaCnquCshE2GgUkc7twaVxgiTrvfZvnbF4d3QxTAQYNM-nJ6lc4VJ7l47o6WlpNT8T-gnNWCHL5b2r6AzPHjOKF8L2hM0-Vd3r7c9GxF6dJk2UQpEll5Qw2fBGVHFXHbLUMcKKK3DQmmILhvQ4-ajx6PsT6qkFbHQOQLLufhfnlzR7RL2HB6prA2_TU0MHcfLHdXbUgxzjPio6BfwEXR"/>
+<div class="absolute top-4 right-4 bg-primary text-on-primary px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-tighter">Best Seller</div>
+</div>
+<h3 class="font-headline-md text-headline-md mb-2">Signature 7D Floor Mats</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Ultra-durable, waterproof mats with anti-skid backing.</p>
+<div class="text-primary font-headline-lg text-headline-lg mb-12">₹8,499.00</div>
+<div class="space-y-12">
+<div class="space-y-4">
+<div class="flex justify-between items-center"><span class="text-on-surface-variant font-label-md text-label-md">Layers</span><span class="font-bold">7-Layer Luxury</span></div>
+<div class="flex justify-between items-center"><span class="text-on-surface-variant font-label-md text-label-md">Thickness</span><span class="font-bold">12mm</span></div>
+<div class="flex justify-between items-center"><span class="text-on-surface-variant font-label-md text-label-md">Material</span><span class="font-bold">Premium PU Leather</span></div>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-center"><span class="text-on-surface-variant font-label-md text-label-md">Finish</span><span class="font-bold">Carbon Diamond</span></div>
+<div class="flex justify-between items-center"><span class="text-on-surface-variant font-label-md text-label-md">Maintenance</span><span class="font-bold">Easy-Wash</span></div>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-center"><span class="text-on-surface-variant font-label-md text-label-md">Warranty</span><span class="font-bold">1 Year Manufacturer</span></div>
+<div class="flex justify-between items-center"><span class="text-on-surface-variant font-label-md text-label-md">Dust Trapping</span><span class="font-bold">High Efficiency</span></div>
+</div>
+<div class="pt-4">
+<div class="bg-primary/10 border border-primary/20 p-4 rounded-xl">
+<div class="text-[10px] text-primary uppercase font-bold mb-2">Perfect Fit</div>
+<div class="text-sm font-bold">Maruti Suzuki Baleno, Hyundai i20, Tata Altroz</div>
+</div>
+</div>
+</div>
+<button onclick="addToCart({slug:'pro-guard-4k-dashcam',name:'ProGuard 4K Dual Dashcam',price:12950,image_url:'https://lh3.googleusercontent.com/aida-public/AB6AXuDR4H4vDmZej6G15ImqHIdlPgdWZx63ga3eUXJ_k13fFACUM0lgOQlwg0KE9FuvUPFitpDesOaKslk6A6Ebe4hNkmwnWarRhfyRKsgbgceliWuGN-4TBEtGaZTNMUSQ8ruPVG0tzGH6HLp4Wap8b-AE3MACJ1uoYBxsV-OD275dM6gS8mOf9ZUYvqwXfe3AXEI3jakcGLKorzPV4zXp0S7q_0ZAXFAUWkN0tYdwT6Jqg5s5cW96veStV2pHbSQ-O_L5bwdSuUzPalmO'})" class="w-full mt-12 bg-white text-black font-label-md text-label-md py-4 rounded-lg hover:bg-primary transition-colors font-bold">Add to Cart</button>
+</div>
+<div class="p-8 border-r border-outline-variant/10 hover:bg-surface-container-low transition-colors group">
+<div class="h-64 relative mb-8 rounded-xl overflow-hidden bg-surface-container-highest">
+<img loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A sleek, compact 4K car dashcam with a large lens, mounted behind a rearview mirror. Soft lighting highlights the metallic body and high-tech interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcHrNnzRpv4CpiY_xwthiis32mCgZs7OCZ35J13ksWothi6e6l4XACu2ot14LGnYKuDa9yMKonYctcjkpcxAsL3Tzpf63bLfLyL2-JfdZ4g87YY5-DL0ny3yBNlTXUgDFrjNTaeeudEZ3gFmSW7xdjm8oiorSIJDMci3It0jR_6hv7DLAVhkFIPABlWGfq3X6VuwHU6sAMoZDXyWtN1zgR6chwihNMBHq3QqldxMQyXp2UAGBF60_yYEm5Aj7bmWEekB37ECwR02N4"/>
+</div>
+<h3 class="font-headline-md text-headline-md mb-2">ProGuard 4K Dual Dashcam</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">4K Ultra HD front and 1080p rear recording with night vision.</p>
+<div class="text-primary font-headline-lg text-headline-lg mb-12">₹12,950.00</div>
+<div class="space-y-12">
+<div class="space-y-4">
+<div class="flex justify-between items-center"><span class="text-on-surface-variant font-label-md text-label-md">Resolution</span><span class="font-bold">4K Native</span></div>
+<div class="flex justify-between items-center"><span class="text-on-surface-variant font-label-md text-label-md">Sensor</span><span class="font-bold">Sony Starvis</span></div>
+<div class="flex justify-between items-center"><span class="text-on-surface-variant font-label-md text-label-md">Field of View</span><span class="font-bold">170° Wide</span></div>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-center"><span class="text-on-surface-variant font-label-md text-label-md">Storage</span><span class="font-bold">Up to 256GB SD</span></div>
+<div class="flex justify-between items-center"><span class="text-on-surface-variant font-label-md text-label-md">Connectivity</span><span class="font-bold">5GHz Wi-Fi</span></div>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-center"><span class="text-on-surface-variant font-label-md text-label-md">Warranty</span><span class="font-bold">2 Year Replacement</span></div>
+<div class="flex justify-between items-center"><span class="text-on-surface-variant font-label-md text-label-md">Night Mode</span><span class="font-bold">Superior WDR</span></div>
+</div>
+<div class="pt-4">
+<div class="bg-surface-variant/30 border border-outline-variant/20 p-4 rounded-xl">
+<div class="text-[10px] text-on-surface-variant uppercase font-bold mb-2">Universal Install</div>
+<div class="text-sm font-bold">All Passenger Vehicles, Hardwire Kit Included</div>
+</div>
+</div>
+</div>
+<button onclick="addToCart({slug:'pro-guard-4k-dashcam',name:'ProGuard 4K Dual Dashcam',price:12950,image_url:'https://lh3.googleusercontent.com/aida-public/AB6AXuBcHrNnzRpv4CpiY_xwthiis32mCgZs7OCZ35J13ksWothi6e6l4XACu2ot14LGnYKuDa9yMKonYctcjkpcxAsL3Tzpf63bLfLyL2-JfdZ4g87YY5-DL0ny3yBNlTXUgDFrjNTaeeudEZ3gFmSW7xdjm8oiorSIJDMci3It0jR_6hv7DLAVhkFIPABlWGfq3X6VuwHU6sAMoZDXyWtN1zgR6chwihNMBHq3QqldxMQyXp2UAGBF60_yYEm5Aj7bmWEekB37ECwR02N4'})" class="w-full mt-12 border border-outline-variant text-white font-label-md text-label-md py-4 rounded-lg hover:bg-surface-variant transition-colors font-bold">Add to Cart</button>
+</div>
+<div class="p-8 hover:bg-surface-container-low transition-colors group">
+<div class="h-64 relative mb-8 rounded-xl overflow-hidden bg-surface-container-highest">
+<img loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Sophisticated tan leather car seat covers with perforated texture and precise stitching, shown in a high-luxury sedan interior." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAi6kVUObdfxWxsMpqL0vYJv5gWc2FxKuFkGRevK5A_ggyd1sfTmksWw3rZeedpOPjAmpt4YLkAVraQVHwhEmTRmHp2DPpBfPwgNzSrMTztcGoGWPRb-IWSejpkQq_s3njQHvHiY1q1uSnZX6PKl6TNodFm2VwHDKQO0_NDgCl9mWXmEAgyyG7QY_wqzjTfXkUO0DkRCtV1W3_VhUolb0sYn3P7j9j63Ddrfo84QymQhRKZwGB8ricvb0wRY9PTvAxrGDwrHX9zw2Mj"/>
+</div>
+<h3 class="font-headline-md text-headline-md mb-2">Elite Nappa Seat Covers</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Custom-fit, breathable leatherette covers for ultimate comfort.</p>
+<div class="text-primary font-headline-lg text-headline-lg mb-12">₹18,200.00</div>
+<div class="space-y-12">
+<div class="space-y-4">
+<div class="flex justify-between items-center"><span class="text-on-surface-variant font-label-md text-label-md">Material</span><span class="font-bold">Nappa Grain</span></div>
+<div class="flex justify-between items-center"><span class="text-on-surface-variant font-label-md text-label-md">Padding</span><span class="font-bold">6mm High Density</span></div>
+<div class="flex justify-between items-center"><span class="text-on-surface-variant font-label-md text-label-md">Design</span><span class="font-bold">Perforated</span></div>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-center"><span class="text-on-surface-variant font-label-md text-label-md">Finish</span><span class="font-bold">Saddle Tan</span></div>
+<div class="flex justify-between items-center"><span class="text-on-surface-variant font-label-md text-label-md">Cleaning</span><span class="font-bold">Easy-Wipe</span></div>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-center"><span class="text-on-surface-variant font-label-md text-label-md">Warranty</span><span class="font-bold">3 Year Color</span></div>
+<div class="flex justify-between items-center"><span class="text-on-surface-variant font-label-md text-label-md">Airbag Safe</span><span class="font-bold">Yes (Side-Seam)</span></div>
+</div>
+<div class="pt-4">
+<div class="bg-surface-variant/30 border border-outline-variant/20 p-4 rounded-xl">
+<div class="text-[10px] text-on-surface-variant uppercase font-bold mb-2">Tailored For</div>
+<div class="text-sm font-bold">Mahindra XUV700, Scorpio-N, Tata Safari</div>
+</div>
+</div>
+</div>
+<button onclick="addToCart({slug:'elite-nappa-seat-covers',name:'Elite Nappa Seat Covers',price:18200,image_url:'https://lh3.googleusercontent.com/aida-public/AB6AXuAi6kVUObdfxWxsMpqL0vYJv5gWc2FxKuFkGRevK5A_ggyd1sfTmksWw3rZeedpOPjAmpt4YLkAVraQVHwhEmTRmHp2DPpBfPwgNzSrMTztcGoGWPRb-IWSejpkQq_s3njQHvHiY1q1uSnZX6PKl6TNodFm2VwHDKQO0_NDgCl9mWXmEAgyyG7QY_wqzjTfXkUO0DkRCtV1W3_VhUolb0sYnP3j9j63Ddrfo84QymQhRKZwGB8ricvb0wRY9PTvAxrGDwrHX9zw2Mj'})" class="w-full mt-12 border border-outline-variant text-white font-label-md text-label-md py-4 rounded-lg hover:bg-surface-variant transition-colors font-bold">Add to Cart</button>
+</div>
+</div>
+</div>
+<div class="absolute top-1/2 right-4 -translate-y-1/2 pointer-events-none md:hidden animate-pulse">
+<span class="material-symbols-outlined text-primary text-4xl">chevron_right</span>
+</div>
+</section>
+<section class="mt-24 px-margin-mobile md:px-margin-desktop">
+<div class="grid md:grid-cols-3 gap-gutter">
+<div class="bg-surface-container p-8 rounded-2xl border border-outline-variant/10">
+<span class="material-symbols-outlined text-primary mb-4">verified_user</span>
+<h4 class="font-headline-md text-headline-md mb-4">Quality Assurance</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Every accessory is tested against Indian road conditions and weather extremes for lasting durability.</p>
+</div>
+<div class="bg-surface-container p-8 rounded-2xl border border-outline-variant/10">
+<span class="material-symbols-outlined text-primary mb-4">local_shipping</span>
+<h4 class="font-headline-md text-headline-md mb-4">Pan-India Delivery</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Fast, secure shipping to over 19,000 pincodes across India with professional installation services in select cities.</p>
+</div>
+<div class="bg-surface-container p-8 rounded-2xl border border-outline-variant/10">
+<span class="material-symbols-outlined text-primary mb-4">support_agent</span>
+<h4 class="font-headline-md text-headline-md mb-4">Expert Consultation</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Speak with our product specialists to ensure the perfect fit and compatibility for your specific car model.</p>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-surface-container-lowest border-t border-surface-variant py-12 px-margin-mobile md:px-margin-desktop">
+<div class="max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-unit">
+<div class="flex flex-col items-center md:items-start gap-4">
+<h3 class="font-headline-md text-headline-md text-on-surface tracking-tighter uppercase">AUTOSHOP</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xs text-center md:text-left">The pinnacle of technological luxury, engineered for those who demand excellence on every road.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-8 my-8 md:my-0">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary-fixed transition-colors" href="about.html">About</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary-fixed transition-colors" href="shop.html">Shop</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary-fixed transition-colors" href="blog.html">Blog</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary-fixed transition-colors" href="contact.html">Contact</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary-fixed transition-colors" href="faq.html">FAQ</a>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">© 2024 AUTOSHOP TECHNOLOGICAL LUXURY</p>
+</div>
+</footer>
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 bg-surface/80 backdrop-blur-2xl border-t border-outline-variant/10 rounded-t-xl shadow-[0_-4px_40px_0_rgba(0,0,0,0.4)] flex justify-around items-center px-4 pb-6 pt-2">
+<a href="index.html" class="flex flex-col items-center justify-center text-secondary-fixed-dim hover:text-primary transition-colors">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-md text-label-md">Home</span>
+</a>
+<a href="shop.html" class="flex flex-col items-center justify-center text-primary-fixed-dim bg-primary/10 rounded-xl px-3 py-1 scale-90 transition-all duration-300">
+<span class="material-symbols-outlined">storefront</span>
+<span class="font-label-md text-label-md">Shop</span>
+</a>
+<a href="wishlist.html" class="flex flex-col items-center justify-center text-secondary-fixed-dim hover:text-primary transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+<span class="font-label-md text-label-md">Saved</span>
+</a>
+<a href="dashboard.html" class="flex flex-col items-center justify-center text-secondary-fixed-dim hover:text-primary transition-colors">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-md text-label-md">Profile</span>
+</a>
+</nav>
+<script>
+const scrollContainer = document.querySelector('.overflow-x-auto');
+let isDown = false;
+let startX;
+let scrollLeft;
+
+scrollContainer.addEventListener('mousedown', (e) => {
+    isDown = true;
+    scrollContainer.classList.add('active');
+    startX = e.pageX - scrollContainer.offsetLeft;
+    scrollLeft = scrollContainer.scrollLeft;
+});
+scrollContainer.addEventListener('mouseleave', () => { isDown = false; });
+scrollContainer.addEventListener('mouseup', () => { isDown = false; });
+scrollContainer.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - scrollContainer.offsetLeft;
+    const walk = (x - startX) * 2;
+    scrollContainer.scrollLeft = scrollLeft - walk;
+});
+</script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

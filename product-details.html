@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title id="page-title">AUTOSHOP | Performance Product Details</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="assets/css/style.css" rel="stylesheet"/>
+<script src="assets/js/tailwind-config.js"></script>
+</head>
+<body class="selection:bg-primary-container selection:text-on-primary-container">
+<header class="top-0 sticky z-50 bg-surface/70 backdrop-blur-xl border-b border-surface-variant/20 shadow-sm flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop h-16 transition-all duration-300">
+<div class="flex items-center gap-4">
+<button data-toggle-menu class="hover:opacity-80 transition-opacity active:scale-95">
+<span class="material-symbols-outlined text-primary">menu</span>
+</button>
+<h1 class="font-display-lg-mobile text-display-lg-mobile md:text-headline-lg tracking-tighter text-on-surface uppercase">AUTOSHOP</h1>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="index.html">Home</a>
+<a class="font-label-md text-label-md text-primary font-bold" href="shop.html">Shop</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="about.html">About</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="blog.html">Blog</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="contact.html">Contact</a>
+</nav>
+<div class="flex items-center gap-4">
+<button data-toggle-search class="hover:opacity-80 transition-opacity active:scale-95">
+<span class="material-symbols-outlined text-primary">search</span>
+</button>
+<a href="cart.html" class="hover:opacity-80 transition-opacity active:scale-95 relative">
+<span class="material-symbols-outlined text-primary">shopping_bag</span>
+<span id="cart-badge" class="absolute -top-1 -right-1 bg-primary text-on-primary text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
+</a>
+</div>
+</header>
+<main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-8 mb-32">
+<!-- Hero Section: Gallery & Primary Info -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<!-- Gallery Column -->
+<div class="lg:col-span-7 space-y-4">
+<div class="relative group aspect-square rounded-xl overflow-hidden bg-surface-container border border-outline-variant/10">
+<img loading="lazy" id="product-main-image" class="w-full h-full object-cover" alt="Product image" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQEtrl4JUtPUIW254-G4lZn84jyQgvhKUeI20dBzfSviqVfWz6fvdT3Qrw9stQh6b-MP9oqBzZGEl4bw4ZK0-g2pgk-iot3vXiCz3V84WKseD-DzRsJzOhhKL3Yalojk_AlpdjRnfc6WnKhJ9KmDgOrtGjQxGosSwH5ehJLMLaunKDgOAkZRdyhjhprr7VwoOfa_qms0kq_S4buzaC_8P9MLeuT3hgLEqD3wIA3kSTrAnb8b67H-GtjnSwvqqX0QYvZ72Na7xpQIoU">
+<div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
+<button class="bg-surface/80 backdrop-blur-md px-4 py-2 rounded-full text-label-md font-label-md flex items-center gap-2 border border-outline-variant/20 hover:bg-primary hover:text-on-primary transition-all">
+<span class="material-symbols-outlined text-[18px]">360</span>
+                            360° VIEW
+                        </button>
+<button class="bg-surface/80 backdrop-blur-md px-4 py-2 rounded-full text-label-md font-label-md flex items-center gap-2 border border-outline-variant/20 hover:bg-primary hover:text-on-primary transition-all">
+<span class="material-symbols-outlined text-[18px]">zoom_in</span>
+                            ZOOM
+                        </button>
+</div>
+</div>
+<!-- Thumbnails -->
+<div class="flex gap-3 overflow-x-auto scrollbar-hide pb-2">
+<div class="w-24 h-24 flex-shrink-0 rounded-lg border-2 border-primary overflow-hidden cursor-pointer">
+<img loading="lazy" class="w-full h-full object-cover" alt="Product view 1" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKD2DIjXdGZVeKTkQgl9MftppR3EjoXbQXs_-GMbQBctsjsiuLeoY9WZxP4ls5W2kcJ7dRSdGINoW6WAsQinX-60ztMoLMvCOmiyi_T8Zd3ekgBUmapQuP6nbqHJAB5LG6RxxDQvNM4YSgLCllP2Mz3nVj0kQzjCn44oP4H5o06a9PCqn_xeilgeUpFv2NT9iY0F3_Dfl1J_gbIIvgA9_s8J5ijLjTcKIoDNC58k1JMdvpsxqZkYtobUrSU4jb3Wa-3LSfRI1d4phL">
+</div>
+<div class="w-24 h-24 flex-shrink-0 rounded-lg border border-outline-variant/20 overflow-hidden cursor-pointer hover:border-primary/50 transition-colors">
+<img loading="lazy" class="w-full h-full object-cover" alt="Product view 2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzmPiTReJUqR7eJQpMspbRRCpFBaa3z4mqTdRfVzFzIGkdDSBmhRe5-LuMYx9gPhNWj8PhYbIZNovEQNG9mx909MqAfEoWmzbe5dADRIUEEMJh9uVVLPcDngOJMmbohMgmLUm9YNhYai7V_-J8bOVmg6O0WAd2B93uNGB0rqJ6WzVwT32z0FzOCt-QupyQqjF7leF-4PduwNq5tJZH4KrCibwFScMXbPR80_iF9SV9BsuIFOOJ7svbKrHRv0zy4JYyjxo47CGXXoL7">
+</div>
+<div class="w-24 h-24 flex-shrink-0 rounded-lg border border-outline-variant/20 overflow-hidden cursor-pointer hover:border-primary/50 transition-colors">
+<img loading="lazy" class="w-full h-full object-cover" alt="Product view 3" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtaujOC2QwCz2nLjR9_4eriEzjnLPnkfJwpJyvIZAwgCimPx5MSJxjCgSeXdNtWutkHIjQtcIjylKgpOp_qOYWobkjRWlNeZllI-OuthGANOwCL4kMIykFHfRa2Wsof6IQpL13f8PWssaWstadtcAv8qMXRGvUGJ4RX4n1rCF_-UqwZJwy-BGq9VElV6EUb0o2kmuXPTEIA_HBaFzGl3BLI4zCNFhMXV0aZ2s_SrT4UTkKd6W8j7UhJA4ic0vRjMEVqQ_b7QDDA7-l">
+</div>
+</div>
+</div>
+<!-- Product Purchase Actions -->
+<div class="lg:col-span-5 space-y-8 lg:sticky lg:top-24">
+<div class="space-y-2">
+<div class="flex items-center gap-3">
+<span id="product-category" class="text-primary font-label-md tracking-widest uppercase">Loading...</span>
+<span id="product-badge" class="hidden bg-tertiary-container/20 text-tertiary px-2 py-0.5 rounded text-label-md font-bold text-xs"></span>
+</div>
+<h1 id="product-name" class="font-display-lg-mobile text-display-lg-mobile text-on-surface leading-tight">Loading...</h1>
+<p id="product-short-desc" class="text-on-surface-variant text-body-md hidden"></p>
+<div class="flex items-center gap-4">
+<span id="product-price" class="text-3xl font-bold text-on-surface">Loading...</span>
+<span id="product-original-price" class="hidden text-on-surface-variant line-through"></span>
+<span id="product-discount-badge" class="hidden bg-tertiary-container/20 text-tertiary px-2 py-1 rounded text-label-md font-bold"></span>
+</div>
+</div>
+<!-- Vehicle Fitment Check -->
+<div class="glass-panel p-6 rounded-xl flex items-center gap-4 border-l-4 border-l-green-500">
+<div class="w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center text-green-500"><div class="w-8 h-8"><img loading="lazy" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida/AP1WRLuUXfNbpAMTtfNRrP47q3gL281jGa9PNSfFqAmmbPvKJoBV9s2haP_f1bmpdNmas84B75EMj-CZnX-OlJB1Ly4NyP6NjIfgUxao9ulq59aD3Nsjxt3rJUFhKpXvJwDsCm4bpX2mz31Kbn8n_Etgvhu0zNA0shsHWo7Ks0ICFtvsZ2r8sOFTAmgvlef4l948KZph3m2ocCJiIKb-ZzPHbD5NH8prqzM9IxDdc0EbWUWc-IJY0cmpZAljDInn" alt="Checkmark icon"></div></div>
+<div>
+<p class="font-bold text-on-surface">Fits Your 2024 Mahindra XUV700 AX7L</p>
+<p class="text-label-md text-on-surface-variant">Verified by AutoShop India Engineering</p>
+</div>
+<button id="fitment-change-btn" class="ml-auto text-primary text-label-md font-bold hover:underline">Change</button>
+</div>
+<div class="space-y-4">
+<div class="grid grid-cols-2 gap-4">
+<div class="space-y-1">
+<p class="text-label-md text-on-surface-variant">Finish</p>
+<div class="flex gap-2">
+<div class="w-8 h-8 rounded-full bg-[#171717] border-2 border-primary ring-2 ring-offset-2 ring-offset-background ring-transparent cursor-pointer"></div>
+<div class="w-8 h-8 rounded-full bg-[#3B82F6] border-2 border-transparent cursor-pointer hover:border-primary/50"></div>
+<div class="w-8 h-8 rounded-full bg-gray-400 border-2 border-transparent cursor-pointer hover:border-primary/50"></div>
+</div>
+</div>
+<div class="space-y-1">
+<p class="text-label-md text-on-surface-variant">Configuration</p>
+<select class="w-full bg-surface-container-high border-outline-variant/20 rounded-lg text-on-surface focus:ring-primary focus:border-primary">
+<option>Front Pair (380mm)</option>
+<option>Rear Pair (350mm)</option>
+<option>Full Kit (4-Wheel)</option>
+</select>
+</div>
+</div>
+<button id="add-to-cart-btn" class="w-full py-4 bg-primary text-on-primary font-bold rounded-xl shadow-[0_0_20px_rgba(59,130,246,0.3)] hover:brightness-110 active:scale-[0.98] transition-all">
+                        ADD TO GARAGE CART
+                    </button>
+<p class="text-center text-label-md text-on-surface-variant">Estimated delivery: 3-5 business days across India.</p>
+</div>
+</div>
+</section>
+<!-- Technical Specs & Details (Bento Grid) -->
+<section class="mt-24 space-y-12">
+<div class="flex items-center gap-4">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Technical Excellence</h2>
+<div class="h-[1px] flex-grow bg-outline-variant/20"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Spec Card 1 -->
+<div class="glass-panel p-8 rounded-2xl flex flex-col justify-between group hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-primary text-4xl mb-6">speed</span>
+<div>
+<h3 class="font-headline-md text-headline-md mb-2">35% Efficiency</h3>
+<p class="text-on-surface-variant">Optimized heat dissipation for tropical Indian climates and heavy city traffic.</p>
+</div>
+</div>
+<!-- Spec Card 2 -->
+<div class="glass-panel p-8 rounded-2xl flex flex-col justify-between group hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-primary text-4xl mb-6">weight</span>
+<div>
+<h3 class="font-headline-md text-headline-md mb-2">-12kg Mass</h3>
+<p class="text-on-surface-variant">Lighter unsprung weight for better absorption on diverse road surfaces.</p>
+</div>
+</div>
+<!-- Spec Card 3 -->
+<div class="glass-panel p-8 rounded-2xl flex flex-col justify-between group hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-primary text-4xl mb-6">precision_manufacturing</span>
+<div>
+<h3 class="font-headline-md text-headline-md mb-2">CNC Milled</h3>
+<p class="text-on-surface-variant">Precision engineered for consistency, adhering to ARAI quality standards.</p>
+</div>
+</div>
+</div>
+<!-- Detailed Table -->
+<div class="overflow-hidden rounded-2xl border border-outline-variant/10">
+<table class="w-full text-left bg-surface-container-low">
+<thead class="bg-surface-container-high border-b border-outline-variant/20">
+<tr>
+<th class="px-8 py-4 font-bold text-on-surface">Specification</th>
+<th class="px-8 py-4 font-bold text-on-surface">Metric Value</th>
+</tr>
+</thead>
+<tbody id="product-specs" class="divide-y divide-outline-variant/10 text-on-surface-variant">
+</tbody>
+</table>
+</div>
+<!-- Features / Highlights -->
+<div id="product-features-section" class="space-y-4 hidden">
+<h3 class="font-headline-md text-headline-md text-on-surface">Key Features</h3>
+<div id="product-features" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+</div>
+</section>
+<!-- Installation Guide & Compatibility Split -->
+<section class="mt-24 grid grid-cols-1 lg:grid-cols-2 gap-16">
+<div class="space-y-8">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Installation Blueprint</h2>
+<div class="space-y-0">
+<div class="relative pl-12 pb-12 step-line">
+<div class="absolute left-0 top-0 w-8 h-8 rounded-full bg-primary flex items-center justify-center font-bold text-on-primary">1</div>
+<h4 class="font-bold text-xl mb-2">Service Center Diagnostic</h4>
+<p class="text-on-surface-variant">Perform a full ECU scan at an authorized AutoShop partner center to verify sensor compatibility.</p>
+</div>
+<div class="relative pl-12 pb-12 step-line">
+<div class="absolute left-0 top-0 w-8 h-8 rounded-full bg-surface-container-high border border-outline-variant/20 flex items-center justify-center font-bold text-on-surface">2</div>
+<h4 class="font-bold text-xl mb-2">System Bleed</h4>
+<p class="text-on-surface-variant">Drain hydraulic lines using the specialized Indian-standard DOT 4/5.1 compatible fluid kit.</p>
+</div>
+<div class="relative pl-12 pb-12 step-line">
+<div class="absolute left-0 top-0 w-8 h-8 rounded-full bg-surface-container-high border border-outline-variant/20 flex items-center justify-center font-bold text-on-surface">3</div>
+<h4 class="font-bold text-xl mb-2">Torque Verification</h4>
+<p class="text-on-surface-variant">Calibrate mounting bolts to 110Nm using certified digital torque wrenches for highway safety.</p>
+</div>
+<div class="relative pl-12">
+<div class="absolute left-0 top-0 w-8 h-8 rounded-full bg-surface-container-high border border-outline-variant/20 flex items-center justify-center font-bold text-on-surface">4</div>
+<h4 class="font-bold text-xl mb-2">Road Bedding</h4>
+<p class="text-on-surface-variant">Perform the 50km bedding-in procedure on a highway or closed test track to ensure peak bite.</p>
+</div>
+</div>
+</div>
+<div class="space-y-8">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Compatibility Matrix</h2>
+<div class="bg-[#0B0B0B] p-8 rounded-2xl border border-outline-variant/20">
+<div class="space-y-6">
+<div class="flex items-center justify-between pb-4 border-b border-outline-variant/10">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-green-500">check_circle</span>
+<span class="font-bold">Mahindra XUV700</span>
+</div>
+<span class="text-on-surface-variant">2021 - 2024</span>
+</div>
+<div class="flex items-center justify-between pb-4 border-b border-outline-variant/10">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-green-500">check_circle</span>
+<span class="font-bold">Tata Safari / Harrier</span>
+</div>
+<span class="text-on-surface-variant">2023 Facelift</span>
+</div>
+<div class="flex items-center justify-between pb-4 border-b border-outline-variant/10">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-green-500">check_circle</span>
+<span class="font-bold">Maruti Grand Vitara</span>
+</div>
+<span class="text-on-surface-variant">AWD Models</span>
+</div>
+<div class="flex items-center justify-between opacity-50">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-error">cancel</span>
+<span class="font-bold">Hyundai Creta</span>
+</div>
+<span class="text-on-surface-variant text-label-md italic">Series-B adapter required</span>
+</div>
+</div>
+<button class="mt-8 w-full py-3 border border-outline-variant/30 rounded-lg text-label-md font-bold hover:bg-surface-container transition-colors">
+                        VIEW ALL INDIAN MODELS
+                    </button>
+</div>
+</div>
+</section>
+<!-- Frequently Bought Together -->
+<section class="mt-24">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-8">Performance Bundles</h2>
+<div class="glass-panel p-8 rounded-3xl border-primary/20 bg-primary/5">
+<div class="flex flex-col md:flex-row items-center gap-8">
+<div class="flex items-center gap-4">
+<div class="w-24 h-24 rounded-lg bg-surface-container border border-outline-variant/20 overflow-hidden">
+<img loading="lazy" class="w-full h-full object-cover" alt="Primary brake system component." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPbqEwmojFdk4AnWBlVDtgAu5I8ddHdc2KaxF-IbSo_8w2iVbgfqssXmjTdTOhWC3HUV-nnEuRCSqgWwX_Qp5KYf3KYjWjQrygpywgv-3Bc4ARgFtsDxxH0shsxpxhP0dvaJWLo_yMVVDGR-3lpN0qRcdIT60tjaWyvtHVdui9OHIdx2N9M3A1ct-MWAvNeGGdpMA8hae8ZeM2pSxOlh59mn2K1JwYQHDY5vSq2ozU1fSSqbxa5uqB0UrLKMDb-cp3eMNkkXFlYqVq">
+</div>
+<span class="material-symbols-outlined text-3xl text-on-surface-variant">add</span>
+<div class="w-24 h-24 rounded-lg bg-surface-container border border-outline-variant/20 overflow-hidden">
+<img loading="lazy" class="w-full h-full object-cover" alt="High-performance brake fluid." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2tYXDBhZzyvLPDMW8P_ndC1gsv64EoBueoNh6-_I_720JQv9IkCXp2u3TiovBsGQhRf5zL-4S_adpi0pDmZMZ2CWPSC38gm9O7FP-SbX_Unktm2jojWT-WRoKDlteW1ma2cvL3sQIqq-qnhXWW5tGNM9hNatv0rAUk6tPAT_mwpc3NClDq3h3Bazg8RUa4OWy7tuI_zRBew0Bwg_ogK8cLj080ibuGiplDIi36DWMWutoIn-9Ypv7f4aYBxdXwlSZKPpjrwfQDiWF">
+</div>
+<span class="material-symbols-outlined text-3xl text-on-surface-variant">add</span>
+<div class="w-24 h-24 rounded-lg bg-surface-container border border-outline-variant/20 overflow-hidden">
+<img loading="lazy" class="w-full h-full object-cover" alt="Braided brake lines." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDl8yvqsz9Ko9x_z8SWKtv6JpN9_gqRKrLAs9hgKvBUEIa5Mml1ccgoBM212XdfNRs5JX8QwHI1aQkZWgRMFK_nBcNyz7VFpfWeBCZXjLOQ5GZzamcld-OGsKxOJdPudzL7b16mUjSLYktWLFS6Vil-GNer4r_8S48EPrIlDuGL8pAhAz6MQqnfLaeAjeIqQ3eCK4wsDGLpzj0J2tf_YIqxs9WzhAtfeZCUX_1b-56LsVn6l-d6Qr0vx_N2Kx2A2Tm5oaUMc5ov1QMF">
+</div>
+</div>
+<div class="md:ml-auto text-center md:text-right space-y-2">
+<p class="text-label-md text-primary font-bold uppercase tracking-widest">Ultimate Stopping Power Kit</p>
+<h4 class="text-2xl font-bold">₹2,61,000.00 <span class="text-label-md text-on-surface-variant line-through font-normal">₹3,00,000.00</span></h4>
+<button class="bg-primary text-on-primary px-8 py-3 rounded-xl font-bold shadow-lg hover:brightness-110 transition-all">
+                            BUNDLE & SAVE ₹39,000
+                        </button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Sticky Bottom Purchase Bar (Mobile Only / Persistent) -->
+<div class="fixed bottom-0 left-0 w-full z-40 bg-surface/80 backdrop-blur-2xl border-t border-outline-variant/10 px-4 pb-20 pt-2 lg:hidden">
+<div class="flex items-center justify-between gap-4 max-w-lg mx-auto">
+<div class="flex flex-col">
+<span class="text-xs text-on-surface-variant uppercase font-bold tracking-tighter">TOTAL PRICE</span>
+<span id="mobile-sticky-price" class="text-xl font-bold text-on-surface">Loading...</span>
+</div>
+<button id="mobile-buy-btn" class="bg-primary text-on-primary px-8 py-3 rounded-xl font-bold flex-grow max-w-[200px]">
+            BUY NOW
+        </button>
+</div>
+</div>
+<!-- Desktop Bottom Bar / Custom Nav -->
+<nav class="hidden md:flex fixed bottom-6 left-1/2 -translate-x-1/2 z-50 glass-panel px-6 py-2 rounded-2xl items-center gap-12 shadow-[0_-4px_40px_0_rgba(0,0,0,0.4)]">
+<div class="flex items-center gap-8">
+<div class="flex flex-col items-center text-primary">
+<span class="material-symbols-outlined">storefront</span>
+<span class="text-[10px] font-bold uppercase">Shop</span>
+</div>
+<div class="flex flex-col items-center text-on-surface-variant hover:text-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined">minor_crash</span>
+<span class="text-[10px] font-bold uppercase">Garage</span>
+</div>
+<div class="flex flex-col items-center text-on-surface-variant hover:text-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined">favorite</span>
+<span class="text-[10px] font-bold uppercase">Saved</span>
+</div>
+<div class="flex flex-col items-center text-on-surface-variant hover:text-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-bold uppercase">Profile</span>
+</div>
+</div>
+<div class="h-8 w-[1px] bg-outline-variant/20"></div>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary cursor-pointer hover:bg-primary/30 transition-colors">
+<span class="material-symbols-outlined">share</span>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-xl font-bold text-label-md">QUICK CHECKOUT</button>
+</div>
+</nav>
+<!-- Mobile Bottom Nav -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-30 bg-surface/80 backdrop-blur-2xl border-t border-outline-variant/10 rounded-t-xl shadow-[0_-4px_40px_0_rgba(0,0,0,0.4)] flex justify-around items-center px-4 pb-6 pt-2">
+<a href="index.html" class="flex flex-col items-center justify-center text-secondary-fixed-dim hover:text-primary transition-colors">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-md text-label-md">Home</span>
+</a>
+<a href="shop.html" class="flex flex-col items-center justify-center text-primary-fixed-dim bg-primary/10 rounded-xl px-3 py-1 scale-90 transition-all duration-300">
+<span class="material-symbols-outlined">storefront</span>
+<span class="font-label-md text-label-md">Shop</span>
+</a>
+<a href="wishlist.html" class="flex flex-col items-center justify-center text-secondary-fixed-dim hover:text-primary transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+<span class="font-label-md text-label-md">Saved</span>
+</a>
+<a href="dashboard.html" class="flex flex-col items-center justify-center text-secondary-fixed-dim hover:text-primary transition-colors">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-md text-label-md">Profile</span>
+</a>
+</nav>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-surface-variant flex flex-col gap-unit w-full px-margin-mobile py-24 md:px-margin-desktop">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+<div class="space-y-4">
+<span class="font-headline-md text-headline-md text-on-surface">AUTOSHOP</span>
+<p class="text-on-surface-variant text-body-md">Precision engineering for the modern automotive enthusiast. Technological luxury in every part.</p>
+</div>
+<div class="space-y-4">
+<h5 class="font-bold text-on-surface">Product</h5>
+<nav class="flex flex-col gap-2">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="shop.html">Catalog</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="blog.html">Installation</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="blog.html">Tuning Guide</a>
+</nav>
+</div>
+<div class="space-y-4">
+<h5 class="font-bold text-on-surface">Company</h5>
+<nav class="flex flex-col gap-2">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="about.html">Our Lab</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="about.html">Careers</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="about.html">Sustainability</a>
+</nav>
+</div>
+<div class="space-y-4">
+<h5 class="font-bold text-on-surface">Support</h5>
+<nav class="flex flex-col gap-2">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="contact.html">Privacy</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="contact.html">Terms</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="contact.html">Support</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="faq.html">Shipping</a>
+</nav>
+</div>
+</div>
+<div class="border-t border-outline-variant/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-body-md text-body-md text-on-surface-variant uppercase tracking-widest text-xs">© 2024 AUTOSHOP INDIA TECHNOLOGICAL LUXURY</p>
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer">brand_awareness</span>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer">public</span>
+</div>
+</div>
+</footer>
+<script src="assets/js/main.js"></script>
+<script>
+(function() {
+  var params = new URLSearchParams(window.location.search);
+  var slug = params.get('slug');
+  if (!slug) {
+    slug = 'quantum-v-core-brake-system';
+  }
+
+  function formatPrice(paise) {
+    return (paise / 100).toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+
+  function addToCartHandler(product) {
+    if (window.addToCart) {
+      window.addToCart(product);
+      var btn = document.getElementById('add-to-cart-btn');
+      var origText = btn.textContent;
+      btn.textContent = 'ADDED!';
+      btn.style.background = '#22c55e';
+      setTimeout(function() {
+        btn.textContent = origText;
+        btn.style.background = '';
+      }, 1500);
+    }
+  }
+
+  function renderProduct(product) {
+    document.title = 'AUTOSHOP | ' + product.name;
+
+    document.getElementById('product-name').textContent = product.name;
+
+    var catEl = document.getElementById('product-category');
+    if (product.category_name) {
+      catEl.textContent = product.category_name;
+    } else {
+      catEl.textContent = 'Performance Part';
+    }
+
+    var badgeEl = document.getElementById('product-badge');
+    if (product.badge) {
+      badgeEl.textContent = product.badge;
+      badgeEl.classList.remove('hidden');
+    } else {
+      badgeEl.classList.add('hidden');
+    }
+
+    var shortDescEl = document.getElementById('product-short-desc');
+    if (product.short_desc) {
+      shortDescEl.textContent = product.short_desc;
+      shortDescEl.classList.remove('hidden');
+    } else {
+      shortDescEl.classList.add('hidden');
+    }
+
+    var priceFormatted = '₹' + formatPrice(product.price);
+    document.getElementById('product-price').textContent = priceFormatted;
+
+    var origPriceEl = document.getElementById('product-original-price');
+    var discBadgeEl = document.getElementById('product-discount-badge');
+    if (product.original_price && product.original_price > product.price) {
+      origPriceEl.textContent = '₹' + formatPrice(product.original_price);
+      origPriceEl.classList.remove('hidden');
+      var pct = Math.round((1 - product.price / product.original_price) * 100);
+      discBadgeEl.textContent = pct + '% OFF';
+      discBadgeEl.classList.remove('hidden');
+    } else {
+      origPriceEl.classList.add('hidden');
+      discBadgeEl.classList.add('hidden');
+    }
+
+    var mainImg = document.getElementById('product-main-image');
+    if (product.image_url) {
+      mainImg.src = product.image_url;
+      mainImg.alt = product.name;
+    }
+
+    var mobilePrice = document.getElementById('mobile-sticky-price');
+    if (mobilePrice) {
+      mobilePrice.textContent = priceFormatted;
+    }
+
+    var tbody = document.getElementById('product-specs');
+    tbody.innerHTML = '';
+    if (product.specs && typeof product.specs === 'object') {
+      var keys = Object.keys(product.specs);
+      for (var i = 0; i < keys.length; i++) {
+        var key = keys[i];
+        var val = product.specs[key];
+        var tr = document.createElement('tr');
+        var td1 = document.createElement('td');
+        td1.className = 'px-8 py-4';
+        td1.textContent = key;
+        var td2 = document.createElement('td');
+        td2.className = 'px-8 py-4';
+        td2.textContent = val;
+        tr.appendChild(td1);
+        tr.appendChild(td2);
+        tbody.appendChild(tr);
+      }
+    }
+
+    var featuresSection = document.getElementById('product-features-section');
+    var featuresContainer = document.getElementById('product-features');
+    featuresContainer.innerHTML = '';
+    if (product.features && Array.isArray(product.features) && product.features.length > 0) {
+      featuresSection.classList.remove('hidden');
+      for (var i = 0; i < product.features.length; i++) {
+        var div = document.createElement('div');
+        div.className = 'flex items-center gap-3 px-6 py-4 rounded-2xl bg-surface-container-low border border-outline-variant/10 hover:bg-surface-container-high transition-colors';
+        div.innerHTML = '<span class="material-symbols-outlined text-primary text-xl">check_circle</span><span class="text-on-surface-variant">' + product.features[i] + '</span>';
+        featuresContainer.appendChild(div);
+      }
+    } else {
+      featuresSection.classList.add('hidden');
+    }
+
+    var addBtn = document.getElementById('add-to-cart-btn');
+    addBtn.onclick = function() { addToCartHandler(product); };
+
+    var mobileBuyBtn = document.getElementById('mobile-buy-btn');
+    if (mobileBuyBtn) {
+      mobileBuyBtn.onclick = function() { addToCartHandler(product); };
+    }
+  }
+
+  function showError(msg) {
+    document.getElementById('product-name').textContent = 'Product Not Found';
+    document.getElementById('product-category').textContent = 'Error';
+    document.getElementById('product-price').textContent = '';
+    var shortDescEl = document.getElementById('product-short-desc');
+    shortDescEl.textContent = msg;
+    shortDescEl.classList.remove('hidden');
+    document.getElementById('product-original-price').classList.add('hidden');
+    document.getElementById('product-discount-badge').classList.add('hidden');
+    document.getElementById('add-to-cart-btn').disabled = true;
+    document.getElementById('add-to-cart-btn').className = 'w-full py-4 bg-surface-container-high text-on-surface-variant font-bold rounded-xl cursor-not-allowed';
+  }
+
+  updateCartBadge();
+
+  fetch('/api/products/' + encodeURIComponent(slug))
+    .then(function(res) {
+      if (!res.ok) {
+        throw new Error('Product not found (status ' + res.status + ')');
+      }
+      return res.json();
+    })
+    .then(function(product) {
+      renderProduct(product);
+    })
+    .catch(function(err) {
+      showError(err.message || 'Failed to load product');
+    });
+
+  var fitmentBtn = document.getElementById('fitment-change-btn');
+  if (fitmentBtn) {
+    fitmentBtn.addEventListener('click', function() {
+      var vehicle = prompt('Enter your vehicle model (e.g., 2024 Mahindra XUV700 AX7L):');
+      if (vehicle) {
+        var parent = fitmentBtn.closest('.glass-panel');
+        if (parent) {
+          var title = parent.querySelector('.font-bold.text-on-surface');
+          if (title) {
+            title.textContent = 'Fits Your ' + vehicle;
+          }
+        }
+      }
+    });
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AUTOSHOP | My Garage</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="assets/css/style.css" rel="stylesheet"/>
+<script src="assets/js/tailwind-config.js"></script>
+</head>
+<body class="selection:bg-primary-container selection:text-on-primary-container min-h-screen flex flex-col">
+<header class="top-0 sticky z-50 bg-surface/70 backdrop-blur-xl border-b border-surface-variant/20 shadow-sm flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop h-16 transition-all duration-300">
+<div class="flex items-center gap-4">
+<a href="index.html">
+<h1 class="font-display-lg-mobile text-display-lg-mobile md:text-headline-lg tracking-tighter text-on-surface uppercase">AUTOSHOP</h1>
+</a>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="index.html">Home</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="shop.html">Shop</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="about.html">About</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="blog.html">Blog</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="contact.html">Contact</a>
+</nav>
+<div class="flex items-center gap-4">
+<a id="auth-link" href="login.html" class="font-label-md text-label-md text-primary hover:underline"></a>
+<a href="cart.html" class="hover:opacity-80 transition-opacity active:scale-95 relative">
+<span class="material-symbols-outlined text-primary">shopping_bag</span>
+<span id="cart-badge" class="absolute -top-1 -right-1 bg-primary text-on-primary text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold hidden">0</span>
+</a>
+</div>
+</header>
+<main class="flex-1 px-margin-mobile md:px-margin-desktop py-12">
+<div class="max-w-container-max mx-auto">
+<div class="flex items-center justify-between mb-10">
+<div>
+<p class="font-label-md text-label-md text-primary mb-2 uppercase tracking-widest">Garage</p>
+<h2 class="font-display-lg-mobile md:text-headline-lg text-headline-lg text-on-surface">My Vehicles</h2>
+</div>
+<a href="dashboard.html" class="font-label-md text-label-md text-primary hover:underline flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">arrow_back</span> Back to Dashboard
+</a>
+</div>
+<div id="vehicle-list" class="grid grid-cols-1 md:grid-cols-2 gap-gutter mb-12">
+</div>
+<div class="glass-panel rounded-2xl p-8 border border-white/5">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">add_circle</span> Add a Vehicle
+</h3>
+<form id="vehicle-form" class="space-y-5">
+<div class="field-group">
+<label class="font-label-md text-label-md text-on-surface-variant block mb-2" for="brand">Brand</label>
+<select class="input-glass w-full px-4 py-3 rounded-xl bg-surface-container-low border border-outline-variant/30 text-on-surface focus:outline-none focus:border-primary transition-all duration-300" id="brand" required>
+<option value="">Select Brand</option>
+</select>
+</div>
+<div class="field-group">
+<label class="font-label-md text-label-md text-on-surface-variant block mb-2" for="model">Model</label>
+<select class="input-glass w-full px-4 py-3 rounded-xl bg-surface-container-low border border-outline-variant/30 text-on-surface focus:outline-none focus:border-primary transition-all duration-300" id="model" required disabled>
+<option value="">Select Model</option>
+</select>
+</div>
+<div class="field-group">
+<label class="font-label-md text-label-md text-on-surface-variant block mb-2" for="year">Year</label>
+<select class="input-glass w-full px-4 py-3 rounded-xl bg-surface-container-low border border-outline-variant/30 text-on-surface focus:outline-none focus:border-primary transition-all duration-300" id="year" required disabled>
+<option value="">Select Year</option>
+</select>
+</div>
+<div class="field-group">
+<label class="font-label-md text-label-md text-on-surface-variant block mb-2" for="nickname">Nickname (optional)</label>
+<input class="input-glass w-full px-4 py-3 rounded-xl bg-surface-container-low border border-outline-variant/30 text-on-surface placeholder-on-surface-variant/50 focus:outline-none focus:border-primary transition-all duration-300" id="nickname" type="text" placeholder="e.g. My Daily Driver"/>
+</div>
+<button class="bg-primary text-on-primary font-bold py-3.5 px-6 rounded-xl hover:brightness-110 active:scale-[0.98] transition-all duration-300 flex items-center gap-2" type="submit">
+<span class="material-symbols-outlined">save</span> Save Vehicle
+</button>
+</form>
+<div id="garage-error" class="hidden mt-4 p-3 rounded-xl bg-error-container/20 border border-error/30 text-error font-body-md text-body-md text-center"></div>
+<div id="garage-success" class="hidden mt-4 p-3 rounded-xl bg-primary/10 border border-primary/30 text-primary font-body-md text-body-md text-center"></div>
+</div>
+</div>
+</main>
+<footer class="bg-surface-container-lowest border-t border-surface-variant py-6 px-margin-mobile md:px-margin-desktop">
+<div class="max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-unit">
+<p class="font-body-md text-body-md text-on-surface-variant">© 2024 AUTOSHOP TECHNOLOGICAL LUXURY</p>
+</div>
+</footer>
+<script src="assets/js/main.js"></script>
+<script>
+let brandsData = [];
+let selectedBrand = null;
+
+async function fetchBrands() {
+const res = await fetch('/api/config/brands');
+brandsData = await res.json();
+const brandSelect = document.getElementById('brand');
+brandsData.forEach(b => {
+const opt = document.createElement('option');
+opt.value = b.brand;
+opt.textContent = b.brand;
+brandSelect.appendChild(opt);
+});
+}
+
+function updateModels() {
+const brand = document.getElementById('brand').value;
+const modelSelect = document.getElementById('model');
+const yearSelect = document.getElementById('year');
+modelSelect.innerHTML = '<option value="">Select Model</option>';
+yearSelect.innerHTML = '<option value="">Select Year</option>';
+modelSelect.disabled = true;
+yearSelect.disabled = true;
+if (!brand) return;
+selectedBrand = brandsData.find(b => b.brand === brand);
+if (!selectedBrand) return;
+selectedBrand.models.forEach(m => {
+const opt = document.createElement('option');
+opt.value = m.model;
+opt.textContent = m.model;
+modelSelect.appendChild(opt);
+});
+modelSelect.disabled = false;
+}
+
+function updateYears() {
+const model = document.getElementById('model').value;
+const yearSelect = document.getElementById('year');
+yearSelect.innerHTML = '<option value="">Select Year</option>';
+yearSelect.disabled = true;
+if (!model || !selectedBrand) return;
+const found = selectedBrand.models.find(m => m.model === model);
+if (!found) return;
+found.years.forEach(y => {
+const opt = document.createElement('option');
+opt.value = y;
+opt.textContent = y;
+yearSelect.appendChild(opt);
+});
+yearSelect.disabled = false;
+}
+
+async function loadVehicles() {
+try {
+const res = await fetch('/api/vehicles', { credentials: 'include' });
+const vehicles = await res.json();
+const container = document.getElementById('vehicle-list');
+container.innerHTML = '';
+if (vehicles.length === 0) {
+container.innerHTML = '<div class="md:col-span-2 text-center py-16 text-on-surface-variant"><span class="material-symbols-outlined text-5xl mb-4">garage</span><p class="font-body-lg">No vehicles in your garage yet.</p></div>';
+return;
+}
+vehicles.forEach(v => {
+const card = document.createElement('div');
+card.className = 'bento-card rounded-xl p-6 relative group';
+card.innerHTML = `
+<div class="flex justify-between items-start">
+<div>
+<div class="p-3 rounded-xl bg-primary/10 text-primary w-fit mb-3">
+<span class="material-symbols-outlined text-2xl">directions_car</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-on-surface">${v.brand} ${v.model}</h4>
+<p class="text-on-surface-variant font-body-md">${v.year} ${v.nickname ? '&middot; ' + v.nickname : ''}</p>
+</div>
+<button onclick="deleteVehicle(${v.id})" class="text-error hover:text-error/70 transition-colors">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+`;
+container.appendChild(card);
+});
+} catch (e) {}
+}
+
+async function deleteVehicle(id) {
+if (!confirm('Remove this vehicle from your garage?')) return;
+try {
+const res = await fetch('/api/vehicles/' + id, { method: 'DELETE', credentials: 'include' });
+if (res.ok) loadVehicles();
+} catch (e) {}
+}
+
+document.getElementById('brand').addEventListener('change', updateModels);
+document.getElementById('model').addEventListener('change', updateYears);
+
+document.getElementById('vehicle-form').addEventListener('submit', async function(e) {
+e.preventDefault();
+const err = document.getElementById('garage-error');
+const ok = document.getElementById('garage-success');
+err.classList.add('hidden');
+ok.classList.add('hidden');
+try {
+const res = await fetch('/api/vehicles', {
+method: 'POST',
+headers: {'Content-Type': 'application/json'},
+credentials: 'include',
+body: JSON.stringify({
+brand: document.getElementById('brand').value,
+model: document.getElementById('model').value,
+year: document.getElementById('year').value,
+nickname: document.getElementById('nickname').value
+})
+});
+const data = await res.json();
+if (!res.ok) {
+err.textContent = data.error || 'Failed to save vehicle';
+err.classList.remove('hidden');
+return;
+}
+ok.textContent = 'Vehicle saved!';
+ok.classList.remove('hidden');
+loadVehicles();
+this.reset();
+document.getElementById('model').innerHTML = '<option value="">Select Model</option>';
+document.getElementById('year').innerHTML = '<option value="">Select Year</option>';
+document.getElementById('model').disabled = true;
+document.getElementById('year').disabled = true;
+} catch (e) {
+err.textContent = 'Connection error.';
+err.classList.remove('hidden');
+}
+});
+
+fetchBrands();
+loadVehicles();
+</script>
+</body>
+</html>

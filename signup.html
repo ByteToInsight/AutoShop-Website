@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AUTOSHOP | Create Account</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="assets/css/style.css" rel="stylesheet"/>
+<script src="assets/js/tailwind-config.js"></script>
+</head>
+<body class="selection:bg-primary-container selection:text-on-primary-container min-h-screen flex flex-col bg-surface-dim">
+<header class="top-0 sticky z-50 bg-surface/70 backdrop-blur-xl border-b border-surface-variant/20 flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop h-16">
+<a href="index.html"><h1 class="font-display-lg-mobile text-display-lg-mobile md:text-headline-lg tracking-tighter text-on-surface uppercase">AUTOSHOP</h1></a>
+<div class="flex items-center gap-4">
+<a href="cart.html" class="hover:opacity-80 transition-opacity active:scale-95 relative">
+<span class="material-symbols-outlined text-primary">shopping_bag</span>
+<span id="cart-badge" class="absolute -top-1 -right-1 bg-primary text-on-primary text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold hidden">0</span>
+</a>
+</div>
+</header>
+<main class="flex-1 flex items-center justify-center px-margin-mobile md:px-margin-desktop py-16 relative overflow-hidden">
+<div class="absolute inset-0 pointer-events-none">
+<div class="absolute top-1/3 right-1/3 w-72 h-72 bg-primary/5 rounded-full blur-[100px]"></div>
+<div class="absolute bottom-1/3 left-1/3 w-96 h-96 bg-tertiary/5 rounded-full blur-[120px]"></div>
+</div>
+<div class="w-full max-w-md relative">
+<div class="glass-panel rounded-3xl p-10 border border-white/5 shadow-2xl">
+<div class="text-center mb-8">
+<div class="w-16 h-16 mx-auto mb-5 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center border border-primary/10">
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings:'FILL'1;">person_add</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Create Account</h2>
+<p class="text-on-surface-variant font-body-md mt-2">Join the AUTOSHOP community</p>
+</div>
+<form id="signup-form" class="space-y-4">
+<div class="field-group">
+<label class="font-label-md text-label-md text-on-surface-variant block mb-1.5" for="name">Full Name</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 material-symbols-outlined text-on-surface-variant/50 text-lg">badge</span>
+<input class="input-glass w-full pl-12 pr-4 py-3.5 rounded-xl bg-surface-container-low border border-outline-variant/30 text-on-surface placeholder-on-surface-variant/50 focus:outline-none focus:border-primary transition-all duration-300" id="name" name="name" type="text" placeholder="Arjun Mehta" required autocomplete="name"/>
+</div>
+</div>
+<div class="field-group">
+<label class="font-label-md text-label-md text-on-surface-variant block mb-1.5" for="email">Email Address</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 material-symbols-outlined text-on-surface-variant/50 text-lg">mail</span>
+<input class="input-glass w-full pl-12 pr-4 py-3.5 rounded-xl bg-surface-container-low border border-outline-variant/30 text-on-surface placeholder-on-surface-variant/50 focus:outline-none focus:border-primary transition-all duration-300" id="email" name="email" type="email" placeholder="you@example.com" required autocomplete="email"/>
+</div>
+</div>
+<div class="field-group">
+<label class="font-label-md text-label-md text-on-surface-variant block mb-1.5" for="phone">Phone Number</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 material-symbols-outlined text-on-surface-variant/50 text-lg">call</span>
+<input class="input-glass w-full pl-12 pr-4 py-3.5 rounded-xl bg-surface-container-low border border-outline-variant/30 text-on-surface placeholder-on-surface-variant/50 focus:outline-none focus:border-primary transition-all duration-300" id="phone" name="phone" type="tel" placeholder="+91 98765 43210" autocomplete="tel"/>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="field-group">
+<label class="font-label-md text-label-md text-on-surface-variant block mb-1.5" for="password">Password</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 material-symbols-outlined text-on-surface-variant/50 text-lg">lock</span>
+<input class="input-glass w-full pl-12 pr-4 py-3.5 rounded-xl bg-surface-container-low border border-outline-variant/30 text-on-surface placeholder-on-surface-variant/50 focus:outline-none focus:border-primary transition-all duration-300" id="password" name="password" type="password" placeholder="Min. 8" required minlength="8" autocomplete="new-password"/>
+</div>
+</div>
+<div class="field-group">
+<label class="font-label-md text-label-md text-on-surface-variant block mb-1.5" for="confirm-password">Confirm</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 material-symbols-outlined text-on-surface-variant/50 text-lg">verified</span>
+<input class="input-glass w-full pl-12 pr-4 py-3.5 rounded-xl bg-surface-container-low border border-outline-variant/30 text-on-surface placeholder-on-surface-variant/50 focus:outline-none focus:border-primary transition-all duration-300" id="confirm-password" name="confirm_password" type="password" placeholder="Repeat" required autocomplete="new-password"/>
+</div>
+</div>
+</div>
+<button class="w-full bg-gradient-to-r from-primary to-primary/80 text-on-primary font-bold py-3.5 rounded-xl hover:brightness-110 active:scale-[0.98] transition-all duration-300 flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(173,198,255,0.15)]" type="submit">
+<span id="btn-text">Create Account</span>
+<span id="btn-spinner" class="hidden animate-spin material-symbols-outlined">progress_activity</span>
+</button>
+</form>
+<div id="signup-error" class="hidden mt-4 p-4 rounded-xl bg-error-container/10 border border-error/20 text-error font-body-md text-body-md text-center"></div>
+<div class="mt-8 pt-6 border-t border-outline-variant/10 text-center">
+<p class="text-on-surface-variant font-body-md">Already have an account? <a class="text-primary hover:text-primary-fixed transition-colors font-semibold" href="login.html">Sign in</a></p>
+</div>
+</div>
+</div>
+</main>
+<footer class="bg-surface-container-lowest border-t border-surface-variant/10 py-6 px-margin-mobile md:px-margin-desktop">
+<div class="max-w-container-max mx-auto text-center">
+<p class="font-body-md text-body-md text-on-surface-variant">© 2024 AUTOSHOP TECHNOLOGICAL LUXURY</p>
+</div>
+</footer>
+<script src="assets/js/main.js"></script>
+<script>
+document.getElementById('signup-form').addEventListener('submit', async function(e) {
+e.preventDefault();
+const btn = this.querySelector('button[type="submit"]');
+const btnText = document.getElementById('btn-text');
+const spinner = document.getElementById('btn-spinner');
+const errorEl = document.getElementById('signup-error');
+const pwd = document.getElementById('password').value;
+const confirm = document.getElementById('confirm-password').value;
+if (pwd !== confirm) {
+errorEl.textContent = 'Passwords do not match';
+errorEl.classList.remove('hidden');
+return;
+}
+btn.disabled = true;
+btnText.textContent = 'Creating account...';
+spinner.classList.remove('hidden');
+errorEl.classList.add('hidden');
+try {
+const res = await fetch('/api/auth/signup', {
+method: 'POST',
+headers: {'Content-Type': 'application/json'},
+credentials: 'include',
+body: JSON.stringify({
+name: document.getElementById('name').value,
+email: document.getElementById('email').value,
+phone: document.getElementById('phone').value,
+password: pwd
+})
+});
+const data = await res.json();
+if (!res.ok) {
+errorEl.textContent = data.error || 'Signup failed';
+errorEl.classList.remove('hidden');
+btn.disabled = false;
+btnText.textContent = 'Create Account';
+spinner.classList.add('hidden');
+return;
+}
+const params = new URLSearchParams(window.location.search);
+const redirect = params.get('redirect') || 'dashboard.html';
+window.location.href = redirect;
+} catch (err) {
+errorEl.textContent = 'Connection error. Make sure the server is running.';
+errorEl.classList.remove('hidden');
+btn.disabled = false;
+btnText.textContent = 'Create Account';
+spinner.classList.add('hidden');
+}
+});
+</script>
+</body>
+</html>
