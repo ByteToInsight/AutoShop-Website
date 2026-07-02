@@ -1,0 +1,23 @@
+{
+  "name": "autoshop-anti",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "axios": "^1.18.1",
+    "cheerio": "^1.2.0",
+    "cors": "^2.8.6",
+    "ejs": "^6.0.1",
+    "express": "^5.2.1",
+    "http-proxy-middleware": "^4.1.1",
+    "pg": "^8.22.0",
+    "sqlite3": "^6.0.1"
+  }
+}
