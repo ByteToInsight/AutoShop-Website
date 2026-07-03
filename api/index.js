@@ -13,16 +13,25 @@ const TARGET_URL = 'https://drivestylish.com';
 // Serve local static assets (like our newly generated logo)
 app.use(express.static(path.join(__dirname, '../public')));
 
-// Setup PostgreSQL database (Optional for Vercel)
+// Setup PostgreSQL database
 let pool;
-if (process.env.DATABASE_URL || !process.env.VERCEL) {
+// Only connect if explicitly provided a database URL, OR if running locally (not in Vercel production)
+if (process.env.DATABASE_URL || !process.env.VERCEL_ENV) {
   try {
     pool = new Pool({
-      user: 'postgres',
-      host: 'localhost',
-      database: 'autoshop',
-      password: '', // Trust auth enabled
-      port: 5432,
+      connectionString: process.env.DATABASE_URL,
+      // Fallback for local testing
+      user: process.env.DATABASE_URL ? undefined : 'postgres',
+      host: process.env.DATABASE_URL ? undefined : 'localhost',
+      database: process.env.DATABASE_URL ? undefined : 'autoshop',
+      password: process.env.DATABASE_URL ? undefined : '', // Trust auth enabled
+      port: process.env.DATABASE_URL ? undefined : 5432,
+    });
+
+    // CRITICAL FIX: The pg Pool emits 'error' events on its own when idle clients drop or fail.
+    // Without this listener, Node.js sees an unhandled 'error' event and crashes the entire Serverless Function.
+    pool.on('error', (err, client) => {
+      console.error('Unexpected error on idle database client', err.message);
     });
 
     pool.query(`CREATE TABLE IF NOT EXISTS cart (
@@ -32,7 +41,7 @@ if (process.env.DATABASE_URL || !process.env.VERCEL) {
       title TEXT,
       price TEXT
     )`, (err) => {
-      if (err) console.error("Error creating PostgreSQL table:", err);
+      if (err) console.error("Error creating PostgreSQL table:", err.message);
       else console.log("PostgreSQL cart table initialized.");
     });
   } catch (err) {
