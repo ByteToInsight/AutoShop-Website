@@ -13,25 +13,34 @@ const TARGET_URL = 'https://drivestylish.com';
 // Serve local static assets (like our newly generated logo)
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Setup PostgreSQL database
-const pool = new Pool({
-  user: 'postgres',
-  host: 'localhost',
-  database: 'autoshop',
-  password: '', // Trust auth enabled
-  port: 5432,
-});
+// Setup PostgreSQL database (Optional for Vercel)
+let pool;
+if (process.env.DATABASE_URL || !process.env.VERCEL) {
+  try {
+    pool = new Pool({
+      user: 'postgres',
+      host: 'localhost',
+      database: 'autoshop',
+      password: '', // Trust auth enabled
+      port: 5432,
+    });
 
-pool.query(`CREATE TABLE IF NOT EXISTS cart (
-  id SERIAL PRIMARY KEY,
-  product_id TEXT,
-  quantity INTEGER,
-  title TEXT,
-  price TEXT
-)`, (err) => {
-  if (err) console.error("Error creating PostgreSQL table:", err);
-  else console.log("PostgreSQL cart table initialized.");
-});
+    pool.query(`CREATE TABLE IF NOT EXISTS cart (
+      id SERIAL PRIMARY KEY,
+      product_id TEXT,
+      quantity INTEGER,
+      title TEXT,
+      price TEXT
+    )`, (err) => {
+      if (err) console.error("Error creating PostgreSQL table:", err);
+      else console.log("PostgreSQL cart table initialized.");
+    });
+  } catch (err) {
+    console.error("Database initialization skipped due to error:", err.message);
+  }
+} else {
+  console.log("Running in Vercel without DATABASE_URL. Database features disabled.");
+}
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -40,6 +49,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // --- DATABASE CART API ROUTES ---
 app.post('/cart/add.js', async (req, res) => {
   const { id, quantity } = req.body;
+  if (!pool) {
+    return res.json({ success: true, id, quantity: quantity || 1, local_db_inserted: false, message: 'Database skipped' });
+  }
   try {
     await pool.query(`INSERT INTO cart (product_id, quantity) VALUES ($1, $2)`, [id, quantity || 1]);
     res.json({ success: true, id, quantity: quantity || 1, local_db_inserted: true });
@@ -49,6 +61,9 @@ app.post('/cart/add.js', async (req, res) => {
 });
 
 app.get('/cart.js', async (req, res) => {
+  if (!pool) {
+    return res.json({ items: [], item_count: 0, total_price: 0 });
+  }
   try {
     const result = await pool.query(`SELECT * FROM cart`);
     res.json({ items: result.rows, item_count: result.rows.length, total_price: 0 });
@@ -115,8 +130,13 @@ app.use('/', createProxyMiddleware({
   cookieDomainRewrite: 'localhost'
 }));
 
-app.listen(PORT, () => {
-  console.log(`Smart Proxy Server running at http://localhost:${PORT}`);
-  console.log(`All requests are being proxied to ${TARGET_URL}`);
-  console.log(`Brand names are dynamically changed to Autoshop via Axios interceptor!`);
-});
+// Export for Vercel, or listen if run directly
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`Smart Proxy Server running at http://localhost:${PORT}`);
+    console.log(`All requests are being proxied to ${TARGET_URL}`);
+    console.log(`Brand names are dynamically changed to Autoshop via Axios interceptor!`);
+  });
+}
+
+module.exports = app;
