@@ -1,42 +1,59 @@
 const express = require('express');
-const Database = require('better-sqlite3');
 const path = require('path');
+const fs = require('fs');
+const initSqlJs = require('sql.js');
 
 const app = express();
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
 
-const dbPath = path.join(__dirname, 'database.sqlite');
-let db;
-try {
-  db = new Database(dbPath, { readonly: true });
-} catch (err) {
-  console.error('Database init error:', err.message);
+let db = null;
+
+async function initDb() {
+  const SQL = await initSqlJs();
+  const buffer = fs.readFileSync(path.join(__dirname, 'database.sqlite'));
+  db = new SQL.Database(buffer);
 }
+
+const ready = initDb();
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-app.get('/products/:handle', (req, res) => {
+app.get('/products/:handle', async (req, res) => {
+  await ready;
   if (!db) return res.status(500).send('Database unavailable');
   try {
-    const product = db.prepare('SELECT * FROM products WHERE handle = ?').get(req.params.handle);
-    if (!product) return res.status(404).send('Product Not Found');
-    res.render('product', { product });
+    const stmt = db.prepare('SELECT * FROM products WHERE handle = ?');
+    stmt.bind([req.params.handle]);
+    if (stmt.step()) {
+      const product = stmt.getAsObject();
+      stmt.free();
+      res.render('product', { product });
+    } else {
+      stmt.free();
+      res.status(404).send('Product Not Found');
+    }
   } catch (err) {
     console.error(err);
     res.status(500).send('Server Error');
   }
 });
 
-app.get('/collections/:category', (req, res) => {
+app.get('/collections/:category', async (req, res) => {
+  await ready;
   if (!db) return res.status(500).send('Database unavailable');
   try {
-    const products = db.prepare('SELECT * FROM products LIMIT 20').all();
-    res.render('collection', { category, products });
+    const products = [];
+    const stmt = db.prepare('SELECT * FROM products LIMIT 20');
+    while (stmt.step()) {
+      products.push(stmt.getAsObject());
+    }
+    stmt.free();
+    res.render('collection', { category: req.params.category, products });
   } catch (err) {
     console.error(err);
     res.status(500).send('Server Error');
