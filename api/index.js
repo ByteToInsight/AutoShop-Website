@@ -81,63 +81,49 @@ app.get('/cart.js', async (req, res) => {
   }
 });
 
-// --- SMART HTML SCRAPER (AXIOS) ---
-// Intercept main navigation routes to modify HTML robustly
+// --- SMART AXIOS PROXY ---
+// This handles ALL proxying seamlessly and is 100% compatible with Vercel Serverless
 app.use(async (req, res, next) => {
-  const isHtmlRoute = req.path === '/' || 
-                      req.path.startsWith('/collections') || 
-                      req.path.startsWith('/products') || 
-                      req.path.startsWith('/pages') || 
-                      req.path.startsWith('/search');
-                      
-  if (!isHtmlRoute) return next();
-  // Pass asset requests to proxy
-  if (req.url.includes('.') && !req.url.includes('.html')) return next();
+  // Skip our custom APIs and local static assets
+  if (req.path.startsWith('/cart') || req.path === '/autoshop_logo.png') return next();
 
   try {
+    const isAsset = req.path.includes('.');
     const response = await axios.get(`${TARGET_URL}${req.originalUrl}`, {
-      responseType: 'text',
+      responseType: isAsset ? 'arraybuffer' : 'text',
       validateStatus: () => true // Allow all status codes
     });
 
-    let html = response.data;
+    // Pass through critical headers
+    if (response.headers['content-type']) {
+      res.setHeader('content-type', response.headers['content-type']);
+    }
+
+    let data = response.data;
     
-    // Ensure it's actually HTML
-    if (typeof html === 'string' && html.includes('<html')) {
+    // Only intercept and modify HTML pages
+    if (!isAsset && typeof data === 'string' && data.includes('<html')) {
       // Replace physical logo images with our locally generated Autoshop logo
-      html = html.replace(/src="[^"]*logo[^"]*"/gi, 'src="/autoshop_logo.png"');
-      html = html.replace(/srcset="[^"]*logo[^"]*"/gi, 'srcset="/autoshop_logo.png"');
+      data = data.replace(/src="[^"]*logo[^"]*"/gi, 'src="/autoshop_logo.png"');
+      data = data.replace(/srcset="[^"]*logo[^"]*"/gi, 'srcset="/autoshop_logo.png"');
 
       // Replace brand names
-      html = html.replace(/DriveStylish/gi, 'Autoshop');
-      html = html.replace(/Drive Stylish/gi, 'Auto Shop');
+      data = data.replace(/DriveStylish/gi, 'Autoshop');
+      data = data.replace(/Drive Stylish/gi, 'Auto Shop');
       
       // Fix image/asset URLs that might have gotten broken if 'drivestylish' was replaced
-      html = html.replace(/drivestylish\.com/gi, 'autoshop.com');
-      html = html.replace(/autoshop\.com\/cdn/gi, 'drivestylish.com/cdn');
-      html = html.replace(/autoshop\.com\/wpm/gi, 'drivestylish.com/wpm');
-      html = html.replace(/autoshop\.com\/shop/gi, 'drivestylish.com/shop');
-
-      return res.send(html);
+      data = data.replace(/drivestylish\.com/gi, 'autoshop.com');
+      data = data.replace(/autoshop\.com\/cdn/gi, 'drivestylish.com/cdn');
+      data = data.replace(/autoshop\.com\/wpm/gi, 'drivestylish.com/wpm');
+      data = data.replace(/autoshop\.com\/shop/gi, 'drivestylish.com/shop');
     }
     
-    // Fallback for non-HTML
-    res.send(html);
+    return res.send(data);
   } catch (error) {
     console.error('Axios Fetch Error:', error.message);
-    next(); // Fallback to proxy
+    res.status(500).send('Smart Proxy Error');
   }
 });
-
-// --- STANDARD REVERSE PROXY ---
-// This handles all assets (CSS, JS, Images) seamlessly
-app.use('/', createProxyMiddleware({
-  target: TARGET_URL,
-  changeOrigin: true,
-  autoRewrite: true,
-  hostRewrite: true,
-  cookieDomainRewrite: 'localhost'
-}));
 
 // Export for Vercel Serverless Function
 module.exports = app;
