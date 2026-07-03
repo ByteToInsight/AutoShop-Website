@@ -1,9 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 const cheerio = require('cheerio');
-const initSqlJs = require('sql.js');
 
-async function scrapeProducts() {
+function scrapeProducts() {
   console.log('Starting local scrape from index.html...');
 
   const html = fs.readFileSync(path.join(__dirname, 'index.html'), 'utf8');
@@ -46,40 +45,27 @@ async function scrapeProducts() {
       handle,
       title,
       price,
-      originalPrice,
-      imageUrl,
-      url,
+      original_price: originalPrice,
+      image_url: imageUrl,
       description: `Premium quality ${title} engineered for the best fitment.`,
       category: 'Trending'
     });
   });
 
-  console.log(`Found ${products.length} products. Inserting into database...`);
+  const outPath = path.join(__dirname, 'products.json');
 
-  const SQL = await initSqlJs();
-  const dbPath = path.join(__dirname, 'database.sqlite');
-  const buffer = fs.readFileSync(dbPath);
-  const db = new SQL.Database(buffer);
+  let existing = [];
+  try {
+    existing = JSON.parse(fs.readFileSync(outPath, 'utf8'));
+  } catch (e) {}
 
-  products.forEach(p => {
-    const existing = db.exec(`SELECT id FROM products WHERE handle = '${p.handle.replace(/'/g, "''")}'`);
-    if (existing.length === 0 || existing[0].values.length === 0) {
-      db.run(
-        'INSERT INTO products (handle, title, price, original_price, image_url, description, category) VALUES (?, ?, ?, ?, ?, ?, ?)',
-        [p.handle, p.title, p.price, p.originalPrice, p.imageUrl, p.description, p.category]
-      );
-    }
-  });
+  const merged = {};
+  existing.forEach(p => { merged[p.handle] = p; });
+  products.forEach(p => { merged[p.handle] = p; });
 
-  const data = db.export();
-  const bufferOut = Buffer.from(data);
-  fs.writeFileSync(dbPath, bufferOut);
-  db.close();
-
-  console.log('Database population complete.');
+  const result = Object.values(merged);
+  fs.writeFileSync(outPath, JSON.stringify(result, null, 2));
+  console.log(`Found ${products.length} new products. Merged into ${result.length} total in products.json`);
 }
 
-scrapeProducts().catch(err => {
-  console.error(err);
-  process.exit(1);
-});
+scrapeProducts();
