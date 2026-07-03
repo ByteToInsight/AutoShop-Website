@@ -11,7 +11,7 @@ const PORT = 3000;
 const TARGET_URL = 'https://drivestylish.com';
 
 // Serve local static assets (like our newly generated logo)
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '../public')));
 
 // Setup PostgreSQL database (Optional for Vercel)
 let pool;
@@ -130,13 +130,5 @@ app.use('/', createProxyMiddleware({
   cookieDomainRewrite: 'localhost'
 }));
 
-// Export for Vercel, or listen if run directly
-if (require.main === module) {
-  app.listen(PORT, () => {
-    console.log(`Smart Proxy Server running at http://localhost:${PORT}`);
-    console.log(`All requests are being proxied to ${TARGET_URL}`);
-    console.log(`Brand names are dynamically changed to Autoshop via Axios interceptor!`);
-  });
-}
-
+// Export for Vercel Serverless Function
 module.exports = app;
